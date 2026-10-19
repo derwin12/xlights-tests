@@ -170,7 +170,7 @@ footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
 
   <section id="coverage-section" hidden>
     <h2>Coverage</h2>
-    <p class="lede">How much of xLights' own code (<code>src-core/</code> and <code>src-ui-wx/</code>) the scenarios run, measured on a gcov build of the same commit. <a href="coverage/index.html">Line-by-line report</a></p>
+    <p class="lede">How much of the wx-free core (<code>src-core/</code>) the scenarios run, measured on a gcov build of the same commit. The desktop UI (<code>src-ui-wx/</code>) isn't counted, because headless rendering never opens a window. <a href="coverage/index.html">Line-by-line report</a></p>
     <div class="tiles" id="cov-tiles"></div>
     <div class="charts" style="margin-top:12px">
       <div class="card chart">
@@ -410,7 +410,7 @@ if (DATA.coverage) {
   $("cov-tiles").innerHTML =
     tile("Lines covered", pctf(c.line_percent), `${n(c.line_covered)} of ${n(c.line_total)} · ${delta(c.line_percent, prevCov && prevCov.line)}`) +
     tile("Functions covered", pctf(c.function_percent), `${n(c.function_covered)} of ${n(c.function_total)} · ${delta(c.function_percent, prevCov && prevCov.function)}`) +
-    tile("Source files", n(c.files), "in src-core/ and src-ui-wx/");
+    tile("Source files", n(c.files), "in src-core/");
   const meter = v => `<div class="meter"><div class="track"><div class="fill" style="width:${Math.min(100, v)}%"></div></div><span>${pctf(v)}</span></div>`;
   $("cov-dirs").innerHTML = c.dirs.map(d => `<tr><td>${esc(d.dir)}</td><td class="num">${d.files}</td><td class="num">${n(d.line_covered)} / ${n(d.line_total)}</td><td>${meter(d.line_percent)}</td><td class="num">${pctf(d.function_percent)}</td></tr>`).join("");
   $("cov-files").innerHTML = c.least_covered.map(f => `<tr><td><code style="background:none;padding:0">${esc(f.file)}</code></td><td class="num">${n(f.missed)}</td><td class="num">${pctf(f.line_percent)}</td></tr>`).join("");

@@ -11,7 +11,7 @@ Each night the workflow builds xLights master on Linux (the same build container
 
 ## Coverage
 
-The nightly run also builds xLights a second time with gcov (`--coverage`) and runs the same scenarios on that build. `gcovr` then measures which lines and functions of `src-core/` and `src-ui-wx/` they reached. Only the xLights objects are instrumented; wxWidgets and the other prerequisites are built first without it.
+The nightly run also builds xLights a second time with gcov (`--coverage`) and runs the same scenarios on that build. `gcovr` then measures which lines and functions of `src-core/` they reached. `src-ui-wx/` isn't measured: headless rendering never opens a window, so it would read about 0% and only bury the useful numbers. Only the xLights objects are instrumented; wxWidgets and the other prerequisites are built first without it.
 
 The dashboard shows:
 
@@ -44,6 +44,7 @@ The generated show contains:
 - On the matrix, two submodels and a node-range singing face. On the tree, a submodel. On the star, a node-range state definition.
 - `media/beat.wav`, a synthetic 60 s beat with a frequency sweep, and `media/gradient.png`, both written by the generator. Also `media/testsrc.mp4`, a 3 s ffmpeg `testsrc2` clip, which is committed because the CI container has no ffmpeg.
 - An `Effect_<Name>` sequence for each effect, except the ones that need DMX fixtures, MIDI, video, shaders or sketch files. Each one steps through the effect's default settings, every value of each static choice, and every checkbox flipped, one second each, read from xLights' `resources/effectmetadata/*.json`. It then renders the defaults on the group, once with the default buffer and once with *Per Preview*.
+- `Effect_SingleStrandFX`: Single Strand's FX mode, which runs the WLED effect library in `FX.cpp`. It covers all its modes and all 71 palettes, read from `FX.h`. The two "Phased" modes are split into `Effect_SingleStrandFX_Phased`, an expected failure: their phase is a function-level `static` shared by every model and render thread, so the output depends on thread timing.
 - Hand-written scenarios for the effects that need input:
   - **Faces:** each phoneme in turn, then driven by a lyric track.
   - **State:** each state in turn, then driven by a timing track.

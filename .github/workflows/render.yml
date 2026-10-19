@@ -124,7 +124,8 @@ jobs:
           retention-days: 14
 
   # The same scenarios on a gcov-instrumented build, to measure which xLights
-  # code they reach. Only the xLights sources get --coverage: the prerequisites
+  # code they reach. Only src-core is measured: headless rendering never opens
+  # a window, so src-ui-wx would read ~0% and only bury the useful numbers. Only the xLights sources get --coverage: the prerequisites
   # (wxWidgets, ISPC, ...) are built first without it, then just the xLights
   # objects with the compiler and linker overridden.
   coverage:
@@ -189,13 +190,12 @@ jobs:
           echo "gcda files: $(find . -name '*.gcda' | wc -l)"
           mkdir -p ../../coverage
           core=$(realpath ../src-core)
-          ui=$(realpath ../src-ui-wx)
           # Syntax highlighting is most of the report's size (hundreds of MB);
           # the flag was renamed in gcovr 8, so pick whichever this one knows.
           nohl=--no-html-details-syntax-highlighting
           gcovr --help | grep -q -- --no-html-syntax-highlighting && nohl=--no-html-syntax-highlighting
           gcovr --root .. --object-directory . -j $(nproc) $nohl \
-            --filter "$core/" --filter "$ui/" \
+            --filter "$core/" \
             --gcov-ignore-parse-errors=all \
             --json-summary ../../coverage/gcovr-summary.json \
             --html-details ../../coverage/index.html --html-title "xLights render-test coverage"
