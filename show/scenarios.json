@@ -113,6 +113,12 @@
     "Effect_SingleStrand": {
       "expected_failure": null
     },
+    "Effect_SingleStrandFX": {
+      "expected_failure": null
+    },
+    "Effect_SingleStrandFX_Phased": {
+      "expected_failure": "WS2812FX::phased_base keeps its phase in a function-level static shared by every model and render thread (FX.cpp), so output depends on thread order"
+    },
     "Effect_Snowflakes": {
       "expected_failure": null
     },

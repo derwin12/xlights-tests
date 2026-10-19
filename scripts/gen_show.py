@@ -58,7 +58,13 @@ BASE_SETTINGS = {
 # its baseline. Shown on the dashboard as an expected failure.
 EXPECTED = {
     "Effect_Liquid": "physics simulation (LiquidFun) is not deterministic",
+    "Effect_SingleStrandFX_Phased": "WS2812FX::phased_base keeps its phase in a function-level static shared by "
+                                    "every model and render thread (FX.cpp), so output depends on thread order",
 }
+
+# Single Strand FX modes split out of Effect_SingleStrandFX because they don't
+# render the same twice (see EXPECTED).
+NONDETERMINISTIC_FX = ["Phased", "Phased Noise"]
 
 
 # ---------------------------------------------------------------- models
@@ -718,8 +724,43 @@ def dmx_scenarios():
     return out
 
 
+def wled_names(src, table):
+    """A JSON_*_names table from FX.h, in its original (WLED) order."""
+    text = (src / "src-core" / "effects" / "FX.h").read_text(encoding="utf-8", errors="replace")
+    start = text.index(f"const char {table}[]")
+    body = text[text.index("[", text.index("R\"=====(", start)) + 1:text.index("]", text.index("R\"=====(", start))]
+    return [n.strip().strip('"') for n in body.replace("\n", "").split(",") if n.strip()]
+
+
 def variant_scenarios(src, core_names):
     out = {}
+
+    # Single Strand's FX mode runs the WLED effect library (FX.cpp), which the
+    # metadata walk never selects: the mode is a notebook tab and the effect
+    # and palette lists are filled in at runtime from FX.h.
+    s = Sequence()
+    fx = {"E_NOTEBOOK_SSEFFECT_TYPE": "FX"}
+    t = 0
+    for mode in wled_names(src, "JSON_mode_names"):
+        if mode in NONDETERMINISTIC_FX:
+            continue
+        for m in core_names:
+            s.add(m, 0, "SingleStrand", dict(fx, E_CHOICE_SingleStrand_FX=mode), t, t + SEGMENT_MS // 2)
+        t += SEGMENT_MS // 2
+    for pal in wled_names(src, "JSON_palette_names"):
+        for m in core_names:
+            s.add(m, 0, "SingleStrand", dict(fx, E_CHOICE_SingleStrand_FX="Palette", E_CHOICE_SingleStrand_FX_Palette=pal),
+                  t, t + SEGMENT_MS // 4)
+        t += SEGMENT_MS // 4
+    out["Effect_SingleStrandFX"] = s
+
+    s = Sequence()
+    t = 0
+    for mode in NONDETERMINISTIC_FX:
+        for m in core_names:
+            s.add(m, 0, "SingleStrand", dict(fx, E_CHOICE_SingleStrand_FX=mode), t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    out["Effect_SingleStrandFX_Phased"] = s
     meta = json.loads((src / "resources" / "effectmetadata" / "Video.json").read_text(encoding="utf-8"))
 
     # Video through the metadata segments, on every core model.
