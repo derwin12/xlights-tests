@@ -182,15 +182,18 @@ jobs:
             --baselines baselines --out artifacts -k "${{ github.event.inputs.filter }}" || true
 
       - name: Measure coverage
-        working-directory: xlights
+        # The makefile compiles from xlights/xLights with ../src-core/... paths,
+        # so gcov has to run from there for the sources to resolve.
+        working-directory: xlights/xLights
         run: |
-          mkdir -p ../coverage
-          gcovr --root . --filter 'src-core/' --filter 'src-ui-wx/' -j $(nproc) \
-            --gcov-ignore-errors=all --gcov-ignore-parse-errors=all \
-            --json-summary ../coverage/gcovr-summary.json \
-            --html-details ../coverage/index.html --html-title "xLights render-test coverage"
-          python3 ../scripts/coverage_summary.py ../coverage/gcovr-summary.json ../coverage/coverage.json
-          du -sh ../coverage
+          echo "gcda files: $(find . -name '*.gcda' | wc -l)"
+          mkdir -p ../../coverage
+          core=$(realpath ../src-core)
+          ui=$(realpath ../src-ui-wx)
+          gcovr --root .. --object-directory . -j $(nproc)             --filter "$core/" --filter "$ui/"             --gcov-ignore-parse-errors=all             --json-summary ../../coverage/gcovr-summary.json             --html-details ../../coverage/index.html --html-title "xLights render-test coverage"
+          python3 -c "import json; f=json.load(open('../../coverage/gcovr-summary.json'))['files']; print(len(f), 'files, e.g.', [x['filename'] for x in f[:3]])"
+          python3 ../../scripts/coverage_summary.py ../../coverage/gcovr-summary.json ../../coverage/coverage.json
+          du -sh ../../coverage
 
       - name: Upload the coverage report
         uses: actions/upload-artifact@v7
