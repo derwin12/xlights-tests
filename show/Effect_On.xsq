@@ -28,7 +28,12 @@
     <Element collapsed="false" type="model" name="Sphere" visible="true" />
     <Element collapsed="false" type="model" name="Cube" visible="true" />
     <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
     <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
   </DisplayElements>
   <ElementEffects>
     <Element type="model" name="Matrix">
@@ -97,10 +102,38 @@
         <Effect ref="1" name="On" startTime="1000" endTime="2000" palette="0" />
       </EffectLayer>
     </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+        <Effect ref="0" name="On" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="On" startTime="1000" endTime="2000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+        <Effect ref="0" name="On" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="On" startTime="1000" endTime="2000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+        <Effect ref="0" name="On" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="On" startTime="1000" endTime="2000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+        <Effect ref="0" name="On" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="On" startTime="1000" endTime="2000" palette="0" />
+      </EffectLayer>
+    </Element>
     <Element type="model" name="All Models">
       <EffectLayer>
         <Effect ref="0" name="On" startTime="2000" endTime="3000" palette="0" />
         <Effect ref="2" name="On" startTime="3000" endTime="4000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
       </EffectLayer>
     </Element>
   </ElementEffects>

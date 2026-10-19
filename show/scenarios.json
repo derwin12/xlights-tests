@@ -1,7 +1,10 @@
 {
-  "channels": 5979,
+  "channels": 6681,
   "frame_ms": 50,
   "scenarios": {
+    "Effect_Adjust": {
+      "expected_failure": null
+    },
     "Effect_Bars": {
       "expected_failure": null
     },
@@ -18,6 +21,12 @@
       "expected_failure": null
     },
     "Effect_Curtain": {
+      "expected_failure": null
+    },
+    "Effect_Duplicate": {
+      "expected_failure": null
+    },
+    "Effect_Faces": {
       "expected_failure": null
     },
     "Effect_Fan": {
@@ -62,10 +71,16 @@
     "Effect_Morph": {
       "expected_failure": null
     },
+    "Effect_Music": {
+      "expected_failure": null
+    },
     "Effect_Off": {
       "expected_failure": null
     },
     "Effect_On": {
+      "expected_failure": null
+    },
+    "Effect_Pictures": {
       "expected_failure": null
     },
     "Effect_Pinwheel": {
@@ -101,6 +116,9 @@
     "Effect_Spirograph": {
       "expected_failure": null
     },
+    "Effect_State": {
+      "expected_failure": null
+    },
     "Effect_Strobe": {
       "expected_failure": null
     },
@@ -114,6 +132,9 @@
       "expected_failure": null
     },
     "Effect_Twinkle": {
+      "expected_failure": null
+    },
+    "Effect_VUMeter": {
       "expected_failure": null
     },
     "Effect_Warp": {
@@ -132,6 +153,12 @@
       "expected_failure": null
     },
     "Feature_LayerBlend": {
+      "expected_failure": null
+    },
+    "Feature_SubModels": {
+      "expected_failure": null
+    },
+    "Feature_TimingTriggers": {
       "expected_failure": null
     },
     "Feature_Transitions": {

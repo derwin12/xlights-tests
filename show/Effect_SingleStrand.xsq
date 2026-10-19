@@ -50,7 +50,12 @@
     <Element collapsed="false" type="model" name="Sphere" visible="true" />
     <Element collapsed="false" type="model" name="Cube" visible="true" />
     <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
     <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
   </DisplayElements>
   <ElementEffects>
     <Element type="model" name="Matrix">
@@ -361,10 +366,126 @@
         <Effect ref="23" name="SingleStrand" startTime="23000" endTime="24000" palette="0" />
       </EffectLayer>
     </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+        <Effect ref="0" name="SingleStrand" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="SingleStrand" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="SingleStrand" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="SingleStrand" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="SingleStrand" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="SingleStrand" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="SingleStrand" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="SingleStrand" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="SingleStrand" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="SingleStrand" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="SingleStrand" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="SingleStrand" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="SingleStrand" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="SingleStrand" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="SingleStrand" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="SingleStrand" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="SingleStrand" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="SingleStrand" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="SingleStrand" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="SingleStrand" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="SingleStrand" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="SingleStrand" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="SingleStrand" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="SingleStrand" startTime="23000" endTime="24000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+        <Effect ref="0" name="SingleStrand" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="SingleStrand" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="SingleStrand" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="SingleStrand" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="SingleStrand" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="SingleStrand" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="SingleStrand" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="SingleStrand" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="SingleStrand" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="SingleStrand" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="SingleStrand" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="SingleStrand" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="SingleStrand" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="SingleStrand" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="SingleStrand" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="SingleStrand" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="SingleStrand" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="SingleStrand" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="SingleStrand" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="SingleStrand" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="SingleStrand" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="SingleStrand" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="SingleStrand" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="SingleStrand" startTime="23000" endTime="24000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+        <Effect ref="0" name="SingleStrand" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="SingleStrand" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="SingleStrand" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="SingleStrand" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="SingleStrand" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="SingleStrand" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="SingleStrand" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="SingleStrand" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="SingleStrand" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="SingleStrand" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="SingleStrand" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="SingleStrand" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="SingleStrand" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="SingleStrand" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="SingleStrand" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="SingleStrand" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="SingleStrand" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="SingleStrand" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="SingleStrand" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="SingleStrand" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="SingleStrand" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="SingleStrand" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="SingleStrand" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="SingleStrand" startTime="23000" endTime="24000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+        <Effect ref="0" name="SingleStrand" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="SingleStrand" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="SingleStrand" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="SingleStrand" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="SingleStrand" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="SingleStrand" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="SingleStrand" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="SingleStrand" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="SingleStrand" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="SingleStrand" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="SingleStrand" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="SingleStrand" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="SingleStrand" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="SingleStrand" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="SingleStrand" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="SingleStrand" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="SingleStrand" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="SingleStrand" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="SingleStrand" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="SingleStrand" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="SingleStrand" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="SingleStrand" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="SingleStrand" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="SingleStrand" startTime="23000" endTime="24000" palette="0" />
+      </EffectLayer>
+    </Element>
     <Element type="model" name="All Models">
       <EffectLayer>
         <Effect ref="0" name="SingleStrand" startTime="24000" endTime="25000" palette="0" />
         <Effect ref="24" name="SingleStrand" startTime="25000" endTime="26000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
       </EffectLayer>
     </Element>
   </ElementEffects>

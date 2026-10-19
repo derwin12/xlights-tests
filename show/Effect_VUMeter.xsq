@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Media</sequenceType>
+    <mediaFile>media/beat.wav</mediaFile>
+    <sequenceDuration>47.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Spectrogram</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Spectrogram Peak</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Spectrogram Line</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Spectrogram Circle Line</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Volume Bars</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Frame Waveform</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=On</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Color On</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Dominant Frequency Colour</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Dominant Frequency Colour Gradient</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Intensity Wave</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Pulse</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Bar</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Random Bar</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Color</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Pulse</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Jump</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Jump 100</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Pulse Color</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Level Shape</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Bar</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Bar Bounce</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Random Bar</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Bars</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Spike</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Sweep</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Sweep 2</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Timed Sweep</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Timed Sweep 2</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Alternate Timed Sweep</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Alternate Timed Sweep 2</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Timed Chase From Middle</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Timed Chase To Middle</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Color</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Jump</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Jump 100</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Pulse</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Timing Event Pulse Color</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Note On</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Note Level Pulse</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Note Level Jump</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Note Level Jump 100</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Note Level Bar</Effect>
+    <Effect>E_CHOICE_VUMeter_TimingTrack=Beats,E_CHOICE_VUMeter_Type=Note Level Random Bar</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Preview,E_CHOICE_VUMeter_TimingTrack=Beats</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="timing" name="Beats" visible="true" active="false" />
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="timing" name="Beats">
+      <EffectLayer>
+        <Effect label="" startTime="0" endTime="500" />
+        <Effect label="" startTime="500" endTime="1000" />
+        <Effect label="" startTime="1000" endTime="1500" />
+        <Effect label="" startTime="1500" endTime="2000" />
+        <Effect label="" startTime="2000" endTime="2500" />
+        <Effect label="" startTime="2500" endTime="3000" />
+        <Effect label="" startTime="3000" endTime="3500" />
+        <Effect label="" startTime="3500" endTime="4000" />
+        <Effect label="" startTime="4000" endTime="4500" />
+        <Effect label="" startTime="4500" endTime="5000" />
+        <Effect label="" startTime="5000" endTime="5500" />
+        <Effect label="" startTime="5500" endTime="6000" />
+        <Effect label="" startTime="6000" endTime="6500" />
+        <Effect label="" startTime="6500" endTime="7000" />
+        <Effect label="" startTime="7000" endTime="7500" />
+        <Effect label="" startTime="7500" endTime="8000" />
+        <Effect label="" startTime="8000" endTime="8500" />
+        <Effect label="" startTime="8500" endTime="9000" />
+        <Effect label="" startTime="9000" endTime="9500" />
+        <Effect label="" startTime="9500" endTime="10000" />
+        <Effect label="" startTime="10000" endTime="10500" />
+        <Effect label="" startTime="10500" endTime="11000" />
+        <Effect label="" startTime="11000" endTime="11500" />
+        <Effect label="" startTime="11500" endTime="12000" />
+        <Effect label="" startTime="12000" endTime="12500" />
+        <Effect label="" startTime="12500" endTime="13000" />
+        <Effect label="" startTime="13000" endTime="13500" />
+        <Effect label="" startTime="13500" endTime="14000" />
+        <Effect label="" startTime="14000" endTime="14500" />
+        <Effect label="" startTime="14500" endTime="15000" />
+        <Effect label="" startTime="15000" endTime="15500" />
+        <Effect label="" startTime="15500" endTime="16000" />
+        <Effect label="" startTime="16000" endTime="16500" />
+        <Effect label="" startTime="16500" endTime="17000" />
+        <Effect label="" startTime="17000" endTime="17500" />
+        <Effect label="" startTime="17500" endTime="18000" />
+        <Effect label="" startTime="18000" endTime="18500" />
+        <Effect label="" startTime="18500" endTime="19000" />
+        <Effect label="" startTime="19000" endTime="19500" />
+        <Effect label="" startTime="19500" endTime="20000" />
+        <Effect label="" startTime="20000" endTime="20500" />
+        <Effect label="" startTime="20500" endTime="21000" />
+        <Effect label="" startTime="21000" endTime="21500" />
+        <Effect label="" startTime="21500" endTime="22000" />
+        <Effect label="" startTime="22000" endTime="22500" />
+        <Effect label="" startTime="22500" endTime="23000" />
+        <Effect label="" startTime="23000" endTime="23500" />
+        <Effect label="" startTime="23500" endTime="24000" />
+        <Effect label="" startTime="24000" endTime="24500" />
+        <Effect label="" startTime="24500" endTime="25000" />
+        <Effect label="" startTime="25000" endTime="25500" />
+        <Effect label="" startTime="25500" endTime="26000" />
+        <Effect label="" startTime="26000" endTime="26500" />
+        <Effect label="" startTime="26500" endTime="27000" />
+        <Effect label="" startTime="27000" endTime="27500" />
+        <Effect label="" startTime="27500" endTime="28000" />
+        <Effect label="" startTime="28000" endTime="28500" />
+        <Effect label="" startTime="28500" endTime="29000" />
+        <Effect label="" startTime="29000" endTime="29500" />
+        <Effect label="" startTime="29500" endTime="30000" />
+        <Effect label="" startTime="30000" endTime="30500" />
+        <Effect label="" startTime="30500" endTime="31000" />
+        <Effect label="" startTime="31000" endTime="31500" />
+        <Effect label="" startTime="31500" endTime="32000" />
+        <Effect label="" startTime="32000" endTime="32500" />
+        <Effect label="" startTime="32500" endTime="33000" />
+        <Effect label="" startTime="33000" endTime="33500" />
+        <Effect label="" startTime="33500" endTime="34000" />
+        <Effect label="" startTime="34000" endTime="34500" />
+        <Effect label="" startTime="34500" endTime="35000" />
+        <Effect label="" startTime="35000" endTime="35500" />
+        <Effect label="" startTime="35500" endTime="36000" />
+        <Effect label="" startTime="36000" endTime="36500" />
+        <Effect label="" startTime="36500" endTime="37000" />
+        <Effect label="" startTime="37000" endTime="37500" />
+        <Effect label="" startTime="37500" endTime="38000" />
+        <Effect label="" startTime="38000" endTime="38500" />
+        <Effect label="" startTime="38500" endTime="39000" />
+        <Effect label="" startTime="39000" endTime="39500" />
+        <Effect label="" startTime="39500" endTime="40000" />
+        <Effect label="" startTime="40000" endTime="40500" />
+        <Effect label="" startTime="40500" endTime="41000" />
+        <Effect label="" startTime="41000" endTime="41500" />
+        <Effect label="" startTime="41500" endTime="42000" />
+        <Effect label="" startTime="42000" endTime="42500" />
+        <Effect label="" startTime="42500" endTime="43000" />
+        <Effect label="" startTime="43000" endTime="43500" />
+        <Effect label="" startTime="43500" endTime="44000" />
+        <Effect label="" startTime="44000" endTime="44500" />
+        <Effect label="" startTime="44500" endTime="45000" />
+        <Effect label="" startTime="45000" endTime="45500" />
+        <Effect label="" startTime="45500" endTime="46000" />
+        <Effect label="" startTime="46000" endTime="46500" />
+        <Effect label="" startTime="46500" endTime="47000" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="VU Meter" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="VU Meter" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="VU Meter" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="VU Meter" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="VU Meter" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="VU Meter" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="VU Meter" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="VU Meter" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="VU Meter" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="VU Meter" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="VU Meter" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="VU Meter" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="VU Meter" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="VU Meter" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="VU Meter" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="VU Meter" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="VU Meter" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="VU Meter" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="VU Meter" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="VU Meter" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="VU Meter" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="VU Meter" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="VU Meter" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="VU Meter" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="VU Meter" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="VU Meter" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="VU Meter" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="VU Meter" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="VU Meter" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="VU Meter" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="VU Meter" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="VU Meter" startTime="32000" endTime="33000" palette="0" />
+        <Effect ref="33" name="VU Meter" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="34" name="VU Meter" startTime="34000" endTime="35000" palette="0" />
+        <Effect ref="35" name="VU Meter" startTime="35000" endTime="36000" palette="0" />
+        <Effect ref="36" name="VU Meter" startTime="36000" endTime="37000" palette="0" />
+        <Effect ref="37" name="VU Meter" startTime="37000" endTime="38000" palette="0" />
+        <Effect ref="38" name="VU Meter" startTime="38000" endTime="39000" palette="0" />
+        <Effect ref="39" name="VU Meter" startTime="39000" endTime="40000" palette="0" />
+        <Effect ref="40" name="VU Meter" startTime="40000" endTime="41000" palette="0" />
+        <Effect ref="41" name="VU Meter" startTime="41000" endTime="42000" palette="0" />
+        <Effect ref="42" name="VU Meter" startTime="42000" endTime="43000" palette="0" />
+        <Effect ref="43" name="VU Meter" startTime="43000" endTime="44000" palette="0" />
+        <Effect ref="44" name="VU Meter" startTime="44000" endTime="45000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+        <Effect ref="0" name="VU Meter" startTime="45000" endTime="46000" palette="0" />
+        <Effect ref="45" name="VU Meter" startTime="46000" endTime="47000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

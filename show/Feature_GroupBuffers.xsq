@@ -47,7 +47,12 @@
     <Element collapsed="false" type="model" name="Sphere" visible="true" />
     <Element collapsed="false" type="model" name="Cube" visible="true" />
     <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
     <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
   </DisplayElements>
   <ElementEffects>
     <Element type="model" name="Matrix">
@@ -94,6 +99,22 @@
       <EffectLayer>
       </EffectLayer>
     </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
     <Element type="model" name="All Models">
       <EffectLayer>
         <Effect ref="0" name="Spirals" startTime="0" endTime="1000" palette="0" />
@@ -118,6 +139,10 @@
         <Effect ref="19" name="Spirals" startTime="19000" endTime="20000" palette="0" />
         <Effect ref="20" name="Spirals" startTime="20000" endTime="21000" palette="0" />
         <Effect ref="21" name="Spirals" startTime="21000" endTime="22000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
       </EffectLayer>
     </Element>
   </ElementEffects>

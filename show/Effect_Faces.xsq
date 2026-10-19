@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>16.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=AI</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=E</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=etc</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=FV</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=L</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=MBP</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=O</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=U</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=WQ</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_Phoneme=rest</Effect>
+    <Effect>E_CHOICE_Faces_Eyes=Open,E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_TimingTrack=Lyrics</Effect>
+    <Effect>E_CHOICE_Faces_Eyes=Closed,E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_TimingTrack=Lyrics</Effect>
+    <Effect>E_CHOICE_Faces_Eyes=Auto,E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_TimingTrack=Lyrics</Effect>
+    <Effect>E_CHOICE_Faces_Eyes=(off),E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_TimingTrack=Lyrics</Effect>
+    <Effect>E_CHECKBOX_Faces_Fade=1,E_CHECKBOX_Faces_Outline=1,E_CHOICE_Faces_FaceDefinition=Singer,E_CHOICE_Faces_TimingTrack=Lyrics</Effect>
+    <Effect>E_CHOICE_Faces_FaceDefinition=Default,E_CHOICE_Faces_TimingTrack=Lyrics</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="timing" name="Lyrics" visible="true" active="false" />
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="timing" name="Lyrics">
+      <EffectLayer>
+        <Effect label="la la la" startTime="0" endTime="16000" />
+      </EffectLayer>
+      <EffectLayer>
+        <Effect label="la" startTime="0" endTime="1000" />
+        <Effect label="la" startTime="1000" endTime="2000" />
+        <Effect label="la" startTime="2000" endTime="3000" />
+        <Effect label="la" startTime="3000" endTime="4000" />
+        <Effect label="la" startTime="4000" endTime="5000" />
+        <Effect label="la" startTime="5000" endTime="6000" />
+        <Effect label="la" startTime="6000" endTime="7000" />
+        <Effect label="la" startTime="7000" endTime="8000" />
+        <Effect label="la" startTime="8000" endTime="9000" />
+        <Effect label="la" startTime="9000" endTime="10000" />
+        <Effect label="la" startTime="10000" endTime="11000" />
+        <Effect label="la" startTime="11000" endTime="12000" />
+        <Effect label="la" startTime="12000" endTime="13000" />
+        <Effect label="la" startTime="13000" endTime="14000" />
+        <Effect label="la" startTime="14000" endTime="15000" />
+        <Effect label="la" startTime="15000" endTime="16000" />
+      </EffectLayer>
+      <EffectLayer>
+        <Effect label="AI" startTime="0" endTime="250" />
+        <Effect label="E" startTime="250" endTime="500" />
+        <Effect label="etc" startTime="500" endTime="750" />
+        <Effect label="FV" startTime="750" endTime="1000" />
+        <Effect label="L" startTime="1000" endTime="1250" />
+        <Effect label="MBP" startTime="1250" endTime="1500" />
+        <Effect label="O" startTime="1500" endTime="1750" />
+        <Effect label="U" startTime="1750" endTime="2000" />
+        <Effect label="WQ" startTime="2000" endTime="2250" />
+        <Effect label="rest" startTime="2250" endTime="2500" />
+        <Effect label="AI" startTime="2500" endTime="2750" />
+        <Effect label="E" startTime="2750" endTime="3000" />
+        <Effect label="etc" startTime="3000" endTime="3250" />
+        <Effect label="FV" startTime="3250" endTime="3500" />
+        <Effect label="L" startTime="3500" endTime="3750" />
+        <Effect label="MBP" startTime="3750" endTime="4000" />
+        <Effect label="O" startTime="4000" endTime="4250" />
+        <Effect label="U" startTime="4250" endTime="4500" />
+        <Effect label="WQ" startTime="4500" endTime="4750" />
+        <Effect label="rest" startTime="4750" endTime="5000" />
+        <Effect label="AI" startTime="5000" endTime="5250" />
+        <Effect label="E" startTime="5250" endTime="5500" />
+        <Effect label="etc" startTime="5500" endTime="5750" />
+        <Effect label="FV" startTime="5750" endTime="6000" />
+        <Effect label="L" startTime="6000" endTime="6250" />
+        <Effect label="MBP" startTime="6250" endTime="6500" />
+        <Effect label="O" startTime="6500" endTime="6750" />
+        <Effect label="U" startTime="6750" endTime="7000" />
+        <Effect label="WQ" startTime="7000" endTime="7250" />
+        <Effect label="rest" startTime="7250" endTime="7500" />
+        <Effect label="AI" startTime="7500" endTime="7750" />
+        <Effect label="E" startTime="7750" endTime="8000" />
+        <Effect label="etc" startTime="8000" endTime="8250" />
+        <Effect label="FV" startTime="8250" endTime="8500" />
+        <Effect label="L" startTime="8500" endTime="8750" />
+        <Effect label="MBP" startTime="8750" endTime="9000" />
+        <Effect label="O" startTime="9000" endTime="9250" />
+        <Effect label="U" startTime="9250" endTime="9500" />
+        <Effect label="WQ" startTime="9500" endTime="9750" />
+        <Effect label="rest" startTime="9750" endTime="10000" />
+        <Effect label="AI" startTime="10000" endTime="10250" />
+        <Effect label="E" startTime="10250" endTime="10500" />
+        <Effect label="etc" startTime="10500" endTime="10750" />
+        <Effect label="FV" startTime="10750" endTime="11000" />
+        <Effect label="L" startTime="11000" endTime="11250" />
+        <Effect label="MBP" startTime="11250" endTime="11500" />
+        <Effect label="O" startTime="11500" endTime="11750" />
+        <Effect label="U" startTime="11750" endTime="12000" />
+        <Effect label="WQ" startTime="12000" endTime="12250" />
+        <Effect label="rest" startTime="12250" endTime="12500" />
+        <Effect label="AI" startTime="12500" endTime="12750" />
+        <Effect label="E" startTime="12750" endTime="13000" />
+        <Effect label="etc" startTime="13000" endTime="13250" />
+        <Effect label="FV" startTime="13250" endTime="13500" />
+        <Effect label="L" startTime="13500" endTime="13750" />
+        <Effect label="MBP" startTime="13750" endTime="14000" />
+        <Effect label="O" startTime="14000" endTime="14250" />
+        <Effect label="U" startTime="14250" endTime="14500" />
+        <Effect label="WQ" startTime="14500" endTime="14750" />
+        <Effect label="rest" startTime="14750" endTime="15000" />
+        <Effect label="AI" startTime="15000" endTime="15250" />
+        <Effect label="E" startTime="15250" endTime="15500" />
+        <Effect label="etc" startTime="15500" endTime="15750" />
+        <Effect label="FV" startTime="15750" endTime="16000" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="Faces" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Faces" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Faces" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Faces" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Faces" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Faces" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Faces" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Faces" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Faces" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Faces" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Faces" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Faces" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Faces" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Faces" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Faces" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Faces" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

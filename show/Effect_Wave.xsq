@@ -35,7 +35,12 @@
     <Element collapsed="false" type="model" name="Sphere" visible="true" />
     <Element collapsed="false" type="model" name="Cube" visible="true" />
     <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
     <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
   </DisplayElements>
   <ElementEffects>
     <Element type="model" name="Matrix">
@@ -181,10 +186,66 @@
         <Effect ref="8" name="Wave" startTime="8000" endTime="9000" palette="0" />
       </EffectLayer>
     </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+        <Effect ref="0" name="Wave" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Wave" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Wave" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Wave" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Wave" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Wave" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Wave" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Wave" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Wave" startTime="8000" endTime="9000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+        <Effect ref="0" name="Wave" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Wave" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Wave" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Wave" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Wave" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Wave" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Wave" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Wave" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Wave" startTime="8000" endTime="9000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+        <Effect ref="0" name="Wave" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Wave" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Wave" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Wave" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Wave" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Wave" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Wave" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Wave" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Wave" startTime="8000" endTime="9000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+        <Effect ref="0" name="Wave" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Wave" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Wave" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Wave" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Wave" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Wave" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Wave" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Wave" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Wave" startTime="8000" endTime="9000" palette="0" />
+      </EffectLayer>
+    </Element>
     <Element type="model" name="All Models">
       <EffectLayer>
         <Effect ref="0" name="Wave" startTime="9000" endTime="10000" palette="0" />
         <Effect ref="9" name="Wave" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
       </EffectLayer>
     </Element>
   </ElementEffects>

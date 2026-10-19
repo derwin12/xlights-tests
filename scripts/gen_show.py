@@ -4,9 +4,10 @@
 Writes show/xlights_rgbeffects.xml, show/xlights_networks.xml and one
 show/<scenario>.xsq per scenario. Effect scenarios are derived from xLights'
 resources/effectmetadata/*.json: a defaults segment, one segment per static
-choice option, and one segment with every checkbox flipped. Feature scenarios
-(transitions, layer blending, buffers, colour adjustments, value curves) are
-hand-written below.
+choice option, and one segment with every checkbox flipped. Effects that need
+a face, state, image, audio or another model, and the feature scenarios
+(transitions, layer blending, buffers, colour adjustments, value curves,
+timing triggers, submodels) are hand-written below.
 
 Usage: gen_show.py <xlights-source-dir> <out-show-dir>
 
@@ -16,18 +17,30 @@ changes the scenario's fseq and needs a rebaseline.
 """
 
 import json
+import math
+import struct
 import sys
+import wave
+import zlib
 from pathlib import Path
 from xml.sax.saxutils import quoteattr, escape
 
 SEGMENT_MS = 1000
 FRAME_MS = 50
-MAX_SEGMENTS = 40
+MAX_SEGMENTS = 50
 
-# Effects that need assets, timing tracks, audio, DMX fixtures or another
-# model to reference. They're left out of the generated scenarios.
+# Generated into the show so the effects that need media have some. The audio
+# is a synthetic beat + sweep, so the repo carries nothing copyrighted.
+AUDIO_FILE = "media/beat.wav"
+AUDIO_SECONDS = 60
+AUDIO_RATE = 16000
+IMAGE_FILE = "media/gradient.png"
+
+# Effects the generic metadata walk can't drive. Faces, State, Pictures,
+# VU Meter, Music and Duplicate get hand-written scenarios further down; the
+# rest need DMX fixtures, MIDI, video, shaders or sketch files.
 SKIP_EFFECTS = {
-    "Adjust", "DMX", "Duplicate", "Faces", "Glediator", "Guitar", "Moving Head",
+    "DMX", "Duplicate", "Faces", "Glediator", "Guitar", "Moving Head",
     "Music", "Piano", "Pictures", "Servo", "Shader", "Sketch", "State",
     "VU Meter", "Video",
 }
@@ -78,10 +91,52 @@ def models():
     compressed = ";".join(f"{i + 1},{r},{c},0" for i, (r, c) in enumerate(ring))
     m.append(("Custom", "Custom", dict(CustomWidth=7, CustomHeight=7, Depth=1,
               CustomModelCompressed=compressed, ScaleX=0.4, ScaleY=0.4), len(ring), -450, 50))
+    m.append(("Canes", "Candy Canes", dict(NumCanes=3, NodesPerCane=18, LightsPerNode=1,
+              CandyCaneHeight=1.0, CandyCaneReverse="false", CandyCaneSticks="false",
+              AlternateNodes="false", X2=120, Y2=0, Z2=0, Height=1.0), 54, 150, -150))
+    m.append(("Circle", "Circle", dict(NumStrings=1, NodesPerString=60, LayerSizes="30,20,10",
+              centerPercent=20, InsideOut="0", ScaleX=0.4, ScaleY=0.4), 60, -450, 250))
+    m.append(("Spinner", "Spinner", dict(NumStrings=1, NodesPerArm=10, ArmsPerString=6, Hollow=20,
+              StartAngle=0, Arc=360, ZigZag="false", Alternate="false", ScaleX=0.4, ScaleY=0.4), 60, 550, 250))
+    m.append(("PolyLine", "Poly Line", dict(NodesPerString=60, NumPoints=4, PolyStrings=1, LightsPerNode=1,
+              PointData="0.000000,0.000000,0.000000,0.300000,0.500000,0.000000,0.700000,0.500000,0.000000,1.000000,0.000000,0.000000",
+              cPointData="", DropPattern="1", AlternateNodes="false", ModelHeight=1.0,
+              ScaleX=200, ScaleY=100, ScaleZ=100), 60, -100, 380))
     return m
 
 
 GROUP = "All Models"
+MIXED_GROUP = "Mixed Group"
+
+# Child elements of a model: submodels, a node-range face and a node-range
+# state definition, so Faces, State and submodel buffers have something to use.
+FACE = "Singer"
+STATE = "Points"
+CHILDREN = {
+    "Matrix": [
+        '<subModel name="Top" layout="horizontal" type="ranges" bufferstyle="Default" '
+        'line0="385-416" line1="417-448" line2="449-480" line3="481-512" />',
+        '<subModel name="Columns" layout="vertical" type="ranges" bufferstyle="Default" '
+        'line0="1-32" line1="97-128" line2="193-224" line3="289-320" line4="385-416" line5="481-512" />',
+        '<faceInfo Name="Singer" Type="NodeRange" CustomColors="0" '
+        'FaceOutline="1-32,481-512" Eyes-Open="105-108,121-124" Eyes-Closed="137-140,153-156" '
+        'Mouth-AI="230-235,262-267,294-299" Mouth-E="262-267,294-299" Mouth-etc="262-267" '
+        'Mouth-FV="294-299" Mouth-L="230-235,294-299" Mouth-MBP="262-267" Mouth-O="229-236,261,268,293-300" '
+        'Mouth-rest="263-266" Mouth-U="263-266,295-298" Mouth-WQ="264-265,296-297" />',
+    ],
+    "Tree": [
+        '<subModel name="Bottom" layout="horizontal" type="ranges" bufferstyle="Default" '
+        + " ".join(f'line{i}="{i * 50 + 1}-{i * 50 + 15}"' for i in range(12)) + ' />',
+    ],
+    "Star": [
+        '<stateInfo Name="Points" Type="NodeRange" CustomColors="1" '
+        's001="1-8" s001-Name="one" s001-Color="#ff0000" '
+        's002="9-16" s002-Name="two" s002-Color="#00ff00" '
+        's003="17-24" s003-Name="three" s003-Color="#0000ff" '
+        's004="25-32" s004-Name="four" s004-Color="#ffff00" '
+        's005="33-40" s005-Name="five" s005-Color="#ffffff" />',
+    ],
+}
 
 
 def write_rgbeffects(path, model_list):
@@ -92,13 +147,23 @@ def write_rgbeffects(path, model_list):
                  StartSide="B", Dir="L", Antialias=1, PixelSize=2, Transparency=0,
                  LayoutGroup="Default", versionNumber=8, WorldPosX=x, WorldPosY=y, WorldPosZ=0)
         a.update(attrs)
-        lines.append("    <model " + " ".join(f"{k}={quoteattr(str(v))}" for k, v in a.items()) + " />")
+        open_tag = "    <model " + " ".join(f"{k}={quoteattr(str(v))}" for k, v in a.items())
+        kids = CHILDREN.get(name)
+        if kids:
+            lines.append(open_tag + ">")
+            lines += ["      " + k for k in kids]
+            lines.append("    </model>")
+        else:
+            lines.append(open_tag + " />")
         ch += nodes * 3
     lines.append("  </models>")
     lines.append('  <modelGroups type="rgb_effects">')
     names = ",".join(m[0] for m in model_list)
     lines.append(f'    <modelGroup name={quoteattr(GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
                  f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" models={quoteattr(names)} />')
+    lines.append(f'    <modelGroup name={quoteattr(MIXED_GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
+                 f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" '
+                 f'models="Matrix/Top,Tree/Bottom,Star,Circle,Spinner" />')
     lines.append("  </modelGroups>")
     lines.append("  <view_objects />")
     lines.append("  <layoutGroups />")
@@ -130,9 +195,14 @@ PALETTE = ("C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette
 class Sequence:
     """Collects (element, layer, effect name, settings, start, end) placements."""
 
-    def __init__(self):
+    def __init__(self, media=None):
         self.placements = []
         self.end_ms = 0
+        self.media = media
+        self.timing = {}  # name -> list of layers, each a list of (label, start, end)
+
+    def add_timing(self, name, *layers):
+        self.timing[name] = [list(l) for l in layers]
 
     def add(self, element, layer, effect, settings, start, end):
         self.placements.append((element, layer, effect, settings, start, end))
@@ -142,12 +212,17 @@ class Sequence:
         db = []
         db_index = {}
         per_element = {e: {} for e in element_names}
+        per_sub = {e: {} for e in element_names}
         for element, layer, effect, settings, start, end in self.placements:
             key = ",".join(f"{k}={v}" for k, v in sorted(settings.items()))
             if key not in db_index:
                 db_index[key] = len(db)
                 db.append(key)
-            per_element[element].setdefault(layer, []).append((effect, db_index[key], start, end))
+            if "/" in element:
+                parent, sub = element.split("/", 1)
+                per_sub[parent].setdefault(sub, []).append((effect, db_index[key], start, end))
+            else:
+                per_element[element].setdefault(layer, []).append((effect, db_index[key], start, end))
 
         duration = (self.end_ms + 500) / 1000.0
         out = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -156,8 +231,8 @@ class Sequence:
                "    <version>2026.1</version>",
                "    <author>xlights-tests</author>",
                f"    <sequenceTiming>{FRAME_MS} ms</sequenceTiming>",
-               "    <sequenceType>Animation</sequenceType>",
-               "    <mediaFile></mediaFile>",
+               f"    <sequenceType>{'Media' if self.media else 'Animation'}</sequenceType>",
+               f"    <mediaFile>{escape(self.media or '')}</mediaFile>",
                f"    <sequenceDuration>{duration:.3f}</sequenceDuration>",
                "  </head>",
                "  <ColorPalettes>",
@@ -166,8 +241,16 @@ class Sequence:
                "  <EffectDB>"]
         out += [f"    <Effect>{escape(s)}</Effect>" for s in db]
         out += ["  </EffectDB>", "  <DisplayElements>"]
+        out += [f'    <Element collapsed="false" type="timing" name={quoteattr(t)} visible="true" active="false" />' for t in self.timing]
         out += [f'    <Element collapsed="false" type="model" name={quoteattr(e)} visible="true" />' for e in element_names]
         out += ["  </DisplayElements>", "  <ElementEffects>"]
+        for t, layers in self.timing.items():
+            out.append(f'    <Element type="timing" name={quoteattr(t)}>')
+            for layer in layers:
+                out.append("      <EffectLayer>")
+                out += [f'        <Effect label={quoteattr(lbl)} startTime="{a}" endTime="{b}" />' for lbl, a, b in layer]
+                out.append("      </EffectLayer>")
+            out.append("    </Element>")
         for e in element_names:
             out.append(f'    <Element type="model" name={quoteattr(e)}>')
             layers = per_element[e]
@@ -176,6 +259,11 @@ class Sequence:
                 for effect, ref, start, end in sorted(layers.get(layer, []), key=lambda p: p[2]):
                     out.append(f'        <Effect ref="{ref}" name={quoteattr(effect)} startTime="{start}" endTime="{end}" palette="0" />')
                 out.append("      </EffectLayer>")
+            for sub, effs in per_sub[e].items():
+                out.append(f'      <SubModelEffectLayer name={quoteattr(sub)}>')
+                for effect, ref, start, end in sorted(effs, key=lambda p: p[2]):
+                    out.append(f'        <Effect ref="{ref}" name={quoteattr(effect)} startTime="{start}" endTime="{end}" palette="0" />')
+                out.append("      </SubModelEffectLayer>")
             out.append("    </Element>")
         out += ["  </ElementEffects>", "  <lastView>0</lastView>", "</xsequence>"]
         path.write_text("\n".join(out) + "\n", encoding="utf-8")
@@ -202,13 +290,13 @@ def effect_segments(meta):
     return segs[:MAX_SEGMENTS]
 
 
-def place_segments(seq, models_, effect, segs, canvas=False):
+def place_segments(seq, models_, effect, segs, canvas=False, base=None):
     """Each segment on every model, then the defaults once more on the group.
 
     A canvas-mode effect (Kaleidoscope, Warp) only transforms the layers below
     it, so it gets Bars on layer 1 to work on.
     """
-    base = dict(BASE_SETTINGS.get(effect, {}))
+    base = dict(BASE_SETTINGS.get(effect, {}), **(base or {}))
     if canvas:
         base["T_CHECKBOX_Canvas"] = "1"
     t = 0
@@ -312,7 +400,170 @@ def feature_sequences(model_names):
         t += SEGMENT_MS
     feats["Feature_ValueCurves"] = s
 
+    # Effects that fire on timing marks instead of running freely.
+    s = Sequence()
+    triggers = [
+        ("Ripple", {"E_CHOICE_Ripple_TimingTrack": "Beats"}),
+        ("Shockwave", {"E_CHOICE_Shockwave_TimingTrack": "Beats"}),
+        ("Fireworks", {"E_CHECKBOX_FIRETIMING": "1", "E_CHOICE_FIRETIMINGTRACK": "Beats"}),
+        ("Shape", {"E_CHECKBOX_Shape_FireTiming": "1", "E_CHOICE_Shape_FireTimingTrack": "Beats"}),
+    ]
+    t = 0
+    for effect, st in triggers:
+        for m in model_names:
+            s.add(m, 0, effect, st, t, t + 3 * SEGMENT_MS)
+        t += 3 * SEGMENT_MS
+    s.add_timing("Beats", beat_marks(t))
+    feats["Feature_TimingTriggers"] = s
+
+    # Submodel layers and a group mixing submodels with whole models.
+    s = Sequence()
+    t = 0
+    for sub in ("Matrix/Top", "Matrix/Columns", "Tree/Bottom"):
+        s.add(sub, 0, "Bars", {"E_CHOICE_Bars_Direction": "Left"}, t, t + SEGMENT_MS)
+        s.add(sub, 0, "Spirals", {}, t + SEGMENT_MS, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    s.add("Matrix", 0, "Color Wash", {}, 0, t)
+    for st in ("Default", "Per Preview", "Horizontal Per Model", "Per Model Default", "Overlay - Scaled", "Single Line"):
+        s.add(MIXED_GROUP, 0, "Spirals", {"B_CHOICE_BufferStyle": st}, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    feats["Feature_SubModels"] = s
+
     return feats
+
+
+# --------------------------------------------- effects needing extra input
+
+def beat_marks(end_ms, step=500):
+    return [("", a, min(a + step, end_ms)) for a in range(0, end_ms, step)]
+
+
+PHONEMES = ["AI", "E", "etc", "FV", "L", "MBP", "O", "U", "WQ", "rest"]
+
+
+def lyric_layers(end_ms):
+    """Phrase, word and phoneme layers, one word per second, one phoneme per 250ms."""
+    phrases = [("la la la", 0, end_ms)]
+    words = [("la", a, a + 1000) for a in range(0, end_ms, 1000)]
+    phon = [(PHONEMES[i % len(PHONEMES)], a, a + 250) for i, a in enumerate(range(0, end_ms, 250))]
+    return phrases, words, phon
+
+
+def input_scenarios(src, model_names):
+    """Faces, State, Pictures, VU Meter, Music and Duplicate."""
+    meta = {}
+    for f in (src / "resources" / "effectmetadata").glob("*.json"):
+        if not f.name.startswith("_"):
+            d = json.loads(f.read_text(encoding="utf-8"))
+            meta[d.get("effectName")] = d
+    choices = lambda effect, pid: [o for p in meta[effect]["properties"] if p["id"] == pid for o in p.get("options", [])]
+    out = {}
+
+    # Faces on the Matrix's node-range face: each phoneme held, then driven by
+    # a lyric track with each eye mode, then the built-in matrix face.
+    s = Sequence()
+    face = {"E_CHOICE_Faces_FaceDefinition": FACE}
+    segs = [dict(face, E_CHOICE_Faces_Phoneme=p) for p in PHONEMES]
+    segs += [dict(face, E_CHOICE_Faces_TimingTrack="Lyrics", E_CHOICE_Faces_Eyes=e) for e in choices("Faces", "Faces_Eyes")]
+    segs += [dict(face, E_CHOICE_Faces_TimingTrack="Lyrics", E_CHECKBOX_Faces_Outline="1", E_CHECKBOX_Faces_Fade="1")]
+    segs += [{"E_CHOICE_Faces_FaceDefinition": "Default", "E_CHOICE_Faces_TimingTrack": "Lyrics"}]
+    t = 0
+    for st in segs:
+        s.add("Matrix", 0, "Faces", st, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    s.add_timing("Lyrics", *lyric_layers(t))
+    out["Effect_Faces"] = s
+
+    # State on the Star's node-range states: each state by name, then a
+    # timing track naming them, through each mode and colour option.
+    s = Sequence()
+    base = {"E_CHOICE_State_StateDefinition": STATE}
+    segs = [dict(base, E_CHOICE_State_State=n) for n in ("one", "two", "three", "four", "five")]
+    segs += [dict(base, E_CHOICE_State_TimingTrack="States", E_CHOICE_State_Mode=m) for m in choices("State", "State_Mode")]
+    segs += [dict(base, E_CHOICE_State_TimingTrack="States", E_CHOICE_State_Color=c) for c in choices("State", "State_Color")]
+    t = 0
+    for st in segs:
+        s.add("Star", 0, "State", st, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    names = ["one", "two", "three", "four", "five"]
+    s.add_timing("States", [(names[i % 5], a, a + 500) for i, a in enumerate(range(0, t, 500))])
+    out["Effect_State"] = s
+
+    # Pictures with a generated image, through the metadata segments.
+    s = Sequence()
+    place_segments(s, model_names, "Pictures", effect_segments(meta["Pictures"]),
+                   base={"E_TEXTCTRL_Pictures_Filename": IMAGE_FILE})
+    out["Effect_Pictures"] = s
+
+    # Audio-driven effects over the generated beat. VU Meter's shapes only
+    # apply to a few types, so it walks the types alone.
+    s = Sequence(media=AUDIO_FILE)
+    vu = [{}] + [{"E_CHOICE_VUMeter_Type": v} for v in choices("VU Meter", "VUMeter_Type") if v != "Waveform"]
+    place_segments(s, model_names, "VU Meter", vu[:MAX_SEGMENTS], base={"E_CHOICE_VUMeter_TimingTrack": "Beats"})
+    s.add_timing("Beats", beat_marks(s.end_ms))
+    out["Effect_VUMeter"] = s
+
+    s = Sequence(media=AUDIO_FILE)
+    # Registered as "Music Effect"; only the metadata calls it "Music".
+    place_segments(s, model_names, "Music Effect", effect_segments(meta["Music"]))
+    out["Effect_Music"] = s
+
+    # Duplicate copying the Matrix's layer onto every other model, with each
+    # override in turn.
+    s = Sequence()
+    base = {"E_CHOICE_Duplicate_Model": "Matrix", "E_SPINCTRL_Duplicate_Layer": "1"}
+    segs = [{}] + [{k: "1"} for k in ("E_CHECKBOX_Duplicate_Override_Palette", "E_CHECKBOX_Duplicate_Override_Color",
+                                      "E_CHECKBOX_Duplicate_Override_Timing", "E_CHECKBOX_Duplicate_Override_Buffer")]
+    t = 0
+    for st in segs:
+        for m in model_names:
+            if m != "Matrix":
+                s.add(m, 0, "Duplicate", dict(base, **st), t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    s.add("Matrix", 0, "Bars", {"E_CHOICE_Bars_Direction": "Left"}, 0, t)
+    out["Effect_Duplicate"] = s
+    return out
+
+
+def write_wav(path):
+    """Kick on every beat, a slow 100Hz-4kHz sweep and a quiet chord."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    frames = bytearray()
+    phase = 0.0
+    for i in range(AUDIO_SECONDS * AUDIO_RATE):
+        t = i / AUDIO_RATE
+        beat = t % 0.5
+        kick = math.exp(-beat * 30) * math.sin(2 * math.pi * 60 * beat)
+        freq = 100 * (40 ** ((t % 15) / 15))
+        phase += 2 * math.pi * freq / AUDIO_RATE
+        sweep = 0.3 * math.sin(phase)
+        chord = 0.1 * (math.sin(2 * math.pi * 262 * t) + math.sin(2 * math.pi * 330 * t) + math.sin(2 * math.pi * 392 * t))
+        v = max(-1.0, min(1.0, 0.6 * kick + sweep + chord))
+        frames += struct.pack("<h", int(v * 30000))
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(AUDIO_RATE)
+        w.writeframes(bytes(frames))
+
+
+def write_png(path, w=32, h=16):
+    """Horizontal hue gradient over a vertical brightness ramp."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rows = b""
+    for y in range(h):
+        row = b"\x00"
+        for x in range(w):
+            r, g, b = (int(255 * (0.5 + 0.5 * math.cos(2 * math.pi * (x / w + o)))) for o in (0, 1 / 3, 2 / 3))
+            k = (y + 1) / h
+            row += bytes((int(r * k), int(g * k), int(b * k)))
+        rows += row
+
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data))
+    png = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 2, 0, 0, 0))
+    png += chunk(b"IDAT", zlib.compress(rows, 9)) + chunk(b"IEND", b"")
+    path.write_bytes(png)
 
 
 def main():
@@ -328,7 +579,9 @@ def main():
     channels = write_rgbeffects(out / "xlights_rgbeffects.xml", model_list)
     write_networks(out / "xlights_networks.xml", channels)
     names = [m[0] for m in model_list]
-    elements = names + [GROUP]
+    elements = names + [GROUP, MIXED_GROUP]
+    write_wav(out / AUDIO_FILE)
+    write_png(out / IMAGE_FILE)
 
     scenarios = {}
     for f in sorted((src / "resources" / "effectmetadata").glob("*.json")):
@@ -341,6 +594,7 @@ def main():
         seq = Sequence()
         place_segments(seq, names, effect, effect_segments(meta), canvas=bool(meta.get("canvasMode")))
         scenarios["Effect_" + effect.replace(" ", "")] = seq
+    scenarios.update(input_scenarios(src, names))
     scenarios.update(feature_sequences(names))
 
     for name, seq in scenarios.items():

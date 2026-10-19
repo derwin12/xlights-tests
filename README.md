@@ -19,11 +19,28 @@ python3 scripts/gen_show.py <path-to-xlights-source> show
 
 The generated show contains:
 
-- 11 models (matrix, tree, arches, single line, star, wreath, icicles, window frame, sphere, cube and custom) plus an `All Models` group, all on one DDP controller.
-- An `Effect_<Name>` animation sequence for each effect that needs no external media, timing track or DMX fixture. Each one steps through the effect's default settings, every value of each static choice, and every checkbox flipped, one second each, read from xLights' `resources/effectmetadata/*.json`. It then renders the defaults on the group, once with the default buffer and once with *Per Preview*.
-- `Feature_*` sequences covering in/out transitions, all 24 layer blend methods, group buffer styles, buffer transforms (rotation, blur, sub-buffer, rotozoom), colour adjustments and value curve shapes.
+- 15 models (matrix, tree, arches, single line, star, wreath, icicles, window frame, sphere, cube, custom, candy canes, circle, spinner and poly line), all on one DDP controller.
+- Two groups: `All Models`, and `Mixed Group`, which mixes submodels with whole models.
+- On the matrix, two submodels and a node-range singing face. On the tree, a submodel. On the star, a node-range state definition.
+- `media/beat.wav`, a synthetic 60 s beat with a frequency sweep, and `media/gradient.png`. The generator writes both.
+- An `Effect_<Name>` sequence for each effect, except the ones that need DMX fixtures, MIDI, video, shaders or sketch files. Each one steps through the effect's default settings, every value of each static choice, and every checkbox flipped, one second each, read from xLights' `resources/effectmetadata/*.json`. It then renders the defaults on the group, once with the default buffer and once with *Per Preview*.
+- Hand-written scenarios for the effects that need input:
+  - **Faces:** each phoneme in turn, then driven by a lyric track.
+  - **State:** each state in turn, then driven by a timing track.
+  - **Pictures:** the generated image.
+  - **VU Meter** and **Music:** the generated audio.
+  - **Duplicate:** copies the matrix's layer onto every other model.
+- `Feature_*` sequences covering:
+  - in/out transitions
+  - all 24 layer blend methods
+  - group buffer styles
+  - buffer transforms (rotation, blur, sub-buffer, rotozoom)
+  - colour adjustments
+  - value curve shapes
+  - effects fired by timing marks (Ripple, Shockwave, Fireworks, Shape)
+  - submodels
 
-There's no audio, so the show can be public.
+The audio and image are synthetic, so the show can be public.
 
 ## Running it locally
 
