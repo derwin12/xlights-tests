@@ -190,7 +190,15 @@ jobs:
           mkdir -p ../../coverage
           core=$(realpath ../src-core)
           ui=$(realpath ../src-ui-wx)
-          gcovr --root .. --object-directory . -j $(nproc)             --filter "$core/" --filter "$ui/"             --gcov-ignore-parse-errors=all             --json-summary ../../coverage/gcovr-summary.json             --html-details ../../coverage/index.html --html-title "xLights render-test coverage"
+          # Syntax highlighting is most of the report's size (hundreds of MB);
+          # the flag was renamed in gcovr 8, so pick whichever this one knows.
+          nohl=--no-html-details-syntax-highlighting
+          gcovr --help | grep -q -- --no-html-syntax-highlighting && nohl=--no-html-syntax-highlighting
+          gcovr --root .. --object-directory . -j $(nproc) $nohl \
+            --filter "$core/" --filter "$ui/" \
+            --gcov-ignore-parse-errors=all \
+            --json-summary ../../coverage/gcovr-summary.json \
+            --html-details ../../coverage/index.html --html-title "xLights render-test coverage"
           python3 -c "import json; f=json.load(open('../../coverage/gcovr-summary.json'))['files']; print(len(f), 'files, e.g.', [x['filename'] for x in f[:3]])"
           python3 ../../scripts/coverage_summary.py ../../coverage/gcovr-summary.json ../../coverage/coverage.json
           du -sh ../../coverage
