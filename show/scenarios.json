@@ -1,5 +1,5 @@
 {
-  "channels": 6681,
+  "channels": 8241,
   "frame_ms": 50,
   "scenarios": {
     "Effect_Adjust": {
@@ -21,6 +21,9 @@
       "expected_failure": null
     },
     "Effect_Curtain": {
+      "expected_failure": null
+    },
+    "Effect_DMX": {
       "expected_failure": null
     },
     "Effect_Duplicate": {
@@ -71,6 +74,9 @@
     "Effect_Morph": {
       "expected_failure": null
     },
+    "Effect_MovingHead": {
+      "expected_failure": null
+    },
     "Effect_Music": {
       "expected_failure": null
     },
@@ -90,6 +96,9 @@
       "expected_failure": null
     },
     "Effect_Ripple": {
+      "expected_failure": null
+    },
+    "Effect_Servo": {
       "expected_failure": null
     },
     "Effect_Shape": {
@@ -137,6 +146,9 @@
     "Effect_VUMeter": {
       "expected_failure": null
     },
+    "Effect_Video": {
+      "expected_failure": null
+    },
     "Effect_Warp": {
       "expected_failure": null
     },
@@ -155,6 +167,18 @@
     "Feature_LayerBlend": {
       "expected_failure": null
     },
+    "Feature_LayerMorph": {
+      "expected_failure": null
+    },
+    "Feature_ModelOutput": {
+      "expected_failure": null
+    },
+    "Feature_PaletteCurves": {
+      "expected_failure": null
+    },
+    "Feature_Sparkles": {
+      "expected_failure": null
+    },
     "Feature_SubModels": {
       "expected_failure": null
     },
@@ -165,6 +189,15 @@
       "expected_failure": null
     },
     "Feature_ValueCurves": {
+      "expected_failure": null
+    },
+    "Seq_NoModelBlending": {
+      "expected_failure": null
+    },
+    "Seq_Timing100ms": {
+      "expected_failure": null
+    },
+    "Seq_Timing25ms": {
       "expected_failure": null
     }
   }

@@ -35,10 +35,13 @@ AUDIO_FILE = "media/beat.wav"
 AUDIO_SECONDS = 60
 AUDIO_RATE = 16000
 IMAGE_FILE = "media/gradient.png"
+# A 3 s synthetic test pattern (ffmpeg testsrc2, 64x36, H.264), committed
+# rather than generated because the CI container has no ffmpeg binary.
+VIDEO_FILE = "media/testsrc.mp4"
 
 # Effects the generic metadata walk can't drive. Faces, State, Pictures,
-# VU Meter, Music and Duplicate get hand-written scenarios further down; the
-# rest need DMX fixtures, MIDI, video, shaders or sketch files.
+# VU Meter, Music, Duplicate, Video and the DMX effects get hand-written
+# scenarios further down; the rest need MIDI, shaders or sketch files.
 SKIP_EFFECTS = {
     "DMX", "Duplicate", "Faces", "Glediator", "Guitar", "Moving Head",
     "Music", "Piano", "Pictures", "Servo", "Shader", "Sketch", "State",
@@ -105,8 +108,96 @@ def models():
     return m
 
 
+def single_line(name, x, y, nodes=20, **attrs):
+    a = dict(NumStrings=1, NodesPerString=nodes, LightsPerNode=1, X2=150, Y2=0, Z2=0)
+    a.update(attrs)
+    return (name, "Single Line", a, nodes, x, y)
+
+
+def dmx_attrs(channels, **attrs):
+    a = dict(StringType="Single Color White", DmxChannelCount=channels, _channels=channels,
+             ScaleX=1.0, ScaleY=1.0, ScaleZ=1.0)
+    a.update(attrs)
+    return a
+
+
+MH_MOTORS = [
+    '<PanMotor ChannelCoarse="1" ChannelFine="2" MinLimit="-180" MaxLimit="180" RangeOfMotion="540.000000" '
+    'OrientZero="0" OrientHome="90" SlewLimit="0.000000" SpeedChannel="0" Reverse="0" UpsideDown="0" />',
+    '<TiltMotor ChannelCoarse="3" ChannelFine="4" MinLimit="-90" MaxLimit="90" RangeOfMotion="180.000000" '
+    'OrientZero="0" OrientHome="90" SlewLimit="0.000000" SpeedChannel="0" Reverse="0" UpsideDown="0" />',
+]
+MH_RGBW = dict(DmxColorType=0, DmxRedChannel=6, DmxGreenChannel=7, DmxBlueChannel=8, DmxWhiteChannel=9,
+               MhDimmerChannel=5, DmxShutterChannel=10, DmxShutterOpen=1, DmxShutterOnValue=255)
+MH_WHEEL = dict(DmxColorType=1, DmxColorWheelChannel=6, DmxDimmerChannel=5, MhDimmerChannel=5,
+                DmxShutterChannel=10, DmxShutterOpen=1, DmxShutterOnValue=255,
+                **{f"DmxColorWheel{k}{i}": v for i, (c, d) in enumerate([("#ffffff", 0), ("#ff0000", 20), ("#00ff00", 40),
+                                                                           ("#0000ff", 60), ("#ffff00", 80)])
+                   for k, v in (("Color", c), ("DMX", d))})
+MOVING_HEADS = ["MH1", "MH2", "MH3", "MH4"]
+
+
+def extra_models():
+    """Models used only by their own scenarios: they stay out of All Models so
+    the generic effect scenarios don't change when these are added."""
+    m = []
+    # DMX fixtures: two advanced and two basic moving heads (RGBW and colour
+    # wheel), an RGB floodlight, a general fixture and a two-servo model.
+    m.append(("MH1", "DmxMovingHeadAdv", dmx_attrs(12, DmxFixture="MH1", _children=MH_MOTORS, **MH_RGBW), 0, -300, 500))
+    m.append(("MH2", "DmxMovingHeadAdv", dmx_attrs(12, DmxFixture="MH2", _children=MH_MOTORS, **MH_RGBW), 0, -150, 500))
+    m.append(("MH3", "DmxMovingHead", dmx_attrs(12, DmxFixture="MH3", DmxStyle="Moving Head Top", _children=MH_MOTORS, **MH_WHEEL), 0, 0, 500))
+    m.append(("MH4", "DmxMovingHead", dmx_attrs(12, DmxFixture="MH4", DmxStyle="Moving Head Bars", _children=MH_MOTORS, **MH_RGBW), 0, 150, 500))
+    m.append(("Flood", "DmxFloodlight", dmx_attrs(4, DmxColorType=0, DmxRedChannel=1, DmxGreenChannel=2, DmxBlueChannel=3, DmxWhiteChannel=4), 0, 300, 500))
+    m.append(("DmxGen", "DmxGeneral", dmx_attrs(8, DmxColorType=0, DmxRedChannel=2, DmxGreenChannel=3, DmxBlueChannel=4,
+                                                 DmxPresetChannel0=8, DmxPresetValue0=200, DmxPresetDesc0="Strobe"), 0, 450, 500))
+    m.append(("Servos", "DmxServo", dmx_attrs(4, NumServos=2, Bits16=1, _children=[
+        '<Servo1 Channel="1" MinLimit="1" MaxLimit="65535" RangeOfMotion="180.000000" ServoStyle="Rotate Z" />',
+        '<Servo2 Channel="3" MinLimit="1" MaxLimit="65535" RangeOfMotion="180.000000" ServoStyle="Translate Y" />']), 0, 600, 500))
+
+    # Output variations on a 20-node line: node orders, white/single-colour
+    # strings, every RGBW handling, brightness and gamma curves.
+    y = 650
+    for name, st in (("V_GRB", "GRB Nodes"), ("V_BRG", "BRG Nodes"), ("V_RGBWW", "RGBWW Nodes")):
+        m.append(single_line(name, -300, y, StringType=st, _channels=20 * (5 if "WW" in st else 3)))
+        y += 15
+    for i, h in enumerate(["R=G=B -> W", "RGB Only", "White Only", "Advanced", "White On All"]):
+        m.append(single_line(f"V_RGBW{i}", -300, y, StringType="RGBW Nodes", RGBWHandling=h, _channels=80))
+        y += 15
+    # A single-colour line is one dimmer channel per string, not per node.
+    for name, st in (("V_White", "Single Color White"), ("V_Red", "Single Color Red"), ("V_Intensity", "Single Color Intensity")):
+        m.append(single_line(name, -300, y, nodes=5, NumStrings=4, StringType=st, _channels=4))
+        y += 15
+    m.append(single_line("V_Bright", -300, y, ModelBrightness=-40))
+    y += 15
+    m.append(single_line("V_Gamma", -300, y, _children=['<dimmingCurve><all brightness="0" gamma="2.2" /></dimmingCurve>']))
+    y += 15
+    m.append(single_line("V_RGBCurve", -300, y, _children=[
+        '<dimmingCurve><red brightness="-50" gamma="1.0" /><green brightness="0" gamma="1.0" /><blue brightness="0" gamma="2.0" /></dimmingCurve>']))
+    y += 15
+    # Start-channel forms: controller-relative, chained after another model,
+    # and offset from another model's start. Each still lands right after the
+    # previous model, so the channel map stays contiguous.
+    m.append(single_line("V_ChainA", -300, y, _start="controller"))
+    m.append(single_line("V_ChainB", -150, y, _start=">V_ChainA:1"))
+    m.append(single_line("V_ChainC", 0, y, _start="@V_ChainB:61"))
+    y += 15
+    # Individual start channels, strings stored in reverse order.
+    m.append(("V_Indiv", "Matrix", dict(NumStrings=4, NodesPerString=10, StrandsPerString=1, Vertical="false",
+                                        NoZig="false", AlternateNodes="false", Advanced=1, _indiv=True,
+                                        ScaleX=0.5, ScaleY=0.3), 40, 200, y))
+    # A rotated matrix for the Per Preview buffer.
+    m.append(("V_Rotated", "Matrix", dict(NumStrings=8, NodesPerString=16, StrandsPerString=1, Vertical="false",
+                                          NoZig="false", AlternateNodes="false", RotateZ=30, ScaleX=0.8, ScaleY=0.5), 128, 450, y))
+    return m
+
+
+VARIANTS = ["V_GRB", "V_BRG", "V_RGBWW"] + [f"V_RGBW{i}" for i in range(5)] + [
+    "V_White", "V_Red", "V_Intensity", "V_Bright", "V_Gamma", "V_RGBCurve",
+    "V_ChainA", "V_ChainB", "V_ChainC", "V_Indiv", "V_Rotated"]
+
 GROUP = "All Models"
 MIXED_GROUP = "Mixed Group"
+MH_GROUP = "Moving Heads"
 
 # Child elements of a model: submodels, a node-range face and a node-range
 # state definition, so Faces, State and submodel buffers have something to use.
@@ -139,7 +230,7 @@ CHILDREN = {
 }
 
 
-def write_rgbeffects(path, model_list):
+def write_rgbeffects(path, model_list, group_names):
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', "<xrgb>", '  <models type="rgb_effects">']
     ch = 1
     for name, display, attrs, nodes, x, y in model_list:
@@ -147,23 +238,35 @@ def write_rgbeffects(path, model_list):
                  StartSide="B", Dir="L", Antialias=1, PixelSize=2, Transparency=0,
                  LayoutGroup="Default", versionNumber=8, WorldPosX=x, WorldPosY=y, WorldPosZ=0)
         a.update(attrs)
+        kids = list(CHILDREN.get(name, [])) + list(a.pop("_children", []))
+        chans = a.pop("_channels", nodes * 3)
+        start = a.pop("_start", None)
+        if start == "controller":
+            a["StartChannel"] = f"!Test Controller:{ch}"
+        elif start:
+            a["StartChannel"] = start
+        if a.pop("_indiv", False):
+            per = chans // a["NumStrings"]
+            for i in range(a["NumStrings"]):
+                a[f"String{i + 1}"] = str(ch + (a["NumStrings"] - 1 - i) * per)
         open_tag = "    <model " + " ".join(f"{k}={quoteattr(str(v))}" for k, v in a.items())
-        kids = CHILDREN.get(name)
         if kids:
             lines.append(open_tag + ">")
             lines += ["      " + k for k in kids]
             lines.append("    </model>")
         else:
             lines.append(open_tag + " />")
-        ch += nodes * 3
+        ch += chans
     lines.append("  </models>")
     lines.append('  <modelGroups type="rgb_effects">')
-    names = ",".join(m[0] for m in model_list)
+    names = ",".join(group_names)
     lines.append(f'    <modelGroup name={quoteattr(GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
                  f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" models={quoteattr(names)} />')
     lines.append(f'    <modelGroup name={quoteattr(MIXED_GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
                  f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" '
                  f'models="Matrix/Top,Tree/Bottom,Star,Circle,Spinner" />')
+    lines.append(f'    <modelGroup name={quoteattr(MH_GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
+                 f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" models={quoteattr(",".join(MOVING_HEADS))} />')
     lines.append("  </modelGroups>")
     lines.append("  <view_objects />")
     lines.append("  <layoutGroups />")
@@ -195,48 +298,65 @@ PALETTE = ("C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette
 class Sequence:
     """Collects (element, layer, effect name, settings, start, end) placements."""
 
-    def __init__(self, media=None):
+    def __init__(self, media=None, frame_ms=FRAME_MS, model_blending=True, palette=PALETTE):
         self.placements = []
         self.end_ms = 0
         self.media = media
+        self.frame_ms = frame_ms
+        self.model_blending = model_blending
+        self.palette = palette
         self.timing = {}  # name -> list of layers, each a list of (label, start, end)
 
     def add_timing(self, name, *layers):
         self.timing[name] = [list(l) for l in layers]
 
-    def add(self, element, layer, effect, settings, start, end):
-        self.placements.append((element, layer, effect, settings, start, end))
+    def add(self, element, layer, effect, settings, start, end, palette=None):
+        """palette replaces the sequence palette for this one effect; colours
+        in an effect's settings are ignored, xLights reads them from here."""
+        self.placements.append((element, layer, effect, settings, start, end, palette or self.palette))
         self.end_ms = max(self.end_ms, end)
 
     def write(self, path, element_names):
+        # Elements the scenario uses beyond the standard list (DMX fixtures,
+        # output variants) are appended so they get rows too.
+        element_names = list(element_names)
+        for element, *_ in self.placements:
+            top = element.split("/", 1)[0]
+            if top in element_names:
+                continue
+            element_names.append(top)
         db = []
         db_index = {}
         per_element = {e: {} for e in element_names}
         per_sub = {e: {} for e in element_names}
-        for element, layer, effect, settings, start, end in self.placements:
+        palettes = [self.palette]
+        for element, layer, effect, settings, start, end, palette in self.placements:
             key = ",".join(f"{k}={v}" for k, v in sorted(settings.items()))
             if key not in db_index:
                 db_index[key] = len(db)
                 db.append(key)
+            if palette not in palettes:
+                palettes.append(palette)
+            item = (effect, db_index[key], start, end, palettes.index(palette))
             if "/" in element:
                 parent, sub = element.split("/", 1)
-                per_sub[parent].setdefault(sub, []).append((effect, db_index[key], start, end))
+                per_sub[parent].setdefault(sub, []).append(item)
             else:
-                per_element[element].setdefault(layer, []).append((effect, db_index[key], start, end))
+                per_element[element].setdefault(layer, []).append(item)
 
         duration = (self.end_ms + 500) / 1000.0
         out = ['<?xml version="1.0" encoding="UTF-8"?>',
-               '<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">',
+               f'<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="{str(self.model_blending).lower()}">',
                "  <head>",
                "    <version>2026.1</version>",
                "    <author>xlights-tests</author>",
-               f"    <sequenceTiming>{FRAME_MS} ms</sequenceTiming>",
+               f"    <sequenceTiming>{self.frame_ms} ms</sequenceTiming>",
                f"    <sequenceType>{'Media' if self.media else 'Animation'}</sequenceType>",
                f"    <mediaFile>{escape(self.media or '')}</mediaFile>",
                f"    <sequenceDuration>{duration:.3f}</sequenceDuration>",
                "  </head>",
                "  <ColorPalettes>",
-               f"    <ColorPalette>{PALETTE}</ColorPalette>",
+               *[f"    <ColorPalette>{pal}</ColorPalette>" for pal in palettes],
                "  </ColorPalettes>",
                "  <EffectDB>"]
         out += [f"    <Effect>{escape(s)}</Effect>" for s in db]
@@ -256,13 +376,13 @@ class Sequence:
             layers = per_element[e]
             for layer in range(max(layers.keys(), default=0) + 1):
                 out.append("      <EffectLayer>")
-                for effect, ref, start, end in sorted(layers.get(layer, []), key=lambda p: p[2]):
-                    out.append(f'        <Effect ref="{ref}" name={quoteattr(effect)} startTime="{start}" endTime="{end}" palette="0" />')
+                for effect, ref, start, end, pi in sorted(layers.get(layer, []), key=lambda p: p[2]):
+                    out.append(f'        <Effect ref="{ref}" name={quoteattr(effect)} startTime="{start}" endTime="{end}" palette="{pi}" />')
                 out.append("      </EffectLayer>")
             for sub, effs in per_sub[e].items():
                 out.append(f'      <SubModelEffectLayer name={quoteattr(sub)}>')
-                for effect, ref, start, end in sorted(effs, key=lambda p: p[2]):
-                    out.append(f'        <Effect ref="{ref}" name={quoteattr(effect)} startTime="{start}" endTime="{end}" palette="0" />')
+                for effect, ref, start, end, pi in sorted(effs, key=lambda p: p[2]):
+                    out.append(f'        <Effect ref="{ref}" name={quoteattr(effect)} startTime="{start}" endTime="{end}" palette="{pi}" />')
                 out.append("      </SubModelEffectLayer>")
             out.append("    </Element>")
         out += ["  </ElementEffects>", "  <lastView>0</lastView>", "</xsequence>"]
@@ -525,6 +645,154 @@ def input_scenarios(src, model_names):
     return out
 
 
+def mh_settings(**cmds):
+    """One fixture's Moving Head command string. Commas inside a setting value
+    are stored as &comma; and the path's semicolons as @."""
+    parts = []
+    for k, v in cmds.items():
+        k = k.replace("_", " ")
+        parts.append(f"{k}: {v}" if v is not None else f"{k}: 1")
+    return ";".join(parts).replace(",", "&comma;")
+
+
+def dmx_scenarios():
+    out = {}
+    heads = ",".join(str(i + 1) for i in range(len(MOVING_HEADS)))
+
+    # Moving Head on the group: positions, offsets and groupings, every
+    # pattern, value-curved pan/tilt, a path, colour, wheel, dimmer and
+    # shutter; then the same on one fixture on its own.
+    ramp = lambda vid, lo, hi: f"Active=TRUE|Id=ID_VALUECURVE_{vid}|Type=Ramp|Min={lo}|Max={hi}|P1=0.00|P2=100.00|RV=TRUE|"
+    color = "0.000000,1.000000,1.000000,0.333333,1.000000,1.000000"
+    segs = [
+        dict(Pan="45.0", Tilt="20.0", Heads=heads, Color=color),
+        dict(Pan="0.0", Tilt="0.0", PanOffset="30.0", TiltOffset="10.0", Groupings="2", Heads=heads, Color=color),
+        dict(**{"Pan_VC": ramp("MHPan", -180, 180), "Tilt_VC": ramp("MHTilt", -90, 90)}, Heads=heads, Color=color),
+        dict(Path="0.3,0.3@C0.5,0.1,0.7,0.3,0.7,0.5@L0.3,0.7@", PathScale="1.0", Heads=heads, Color=color),
+        dict(Pan="10.0", Tilt="10.0", Heads=heads, Wheel="0.000000,1.000000,1.000000,0.666667,1.000000,1.000000"),
+        dict(Pan="10.0", Tilt="10.0", Heads=heads, Color=color, Dimmer="0.0,0.0,0.5,1.0,1.0,0.0", Shutter="On"),
+        dict(Pan="10.0", Tilt="10.0", Heads=heads, Color=color, AutoShutter="1"),
+    ]
+    for pat in ("Circle", "Eight", "Line", "Line2", "Diamond", "Square", "SquareChoppy", "SquareTrue", "Leaf", "Lissajous"):
+        segs.append(dict(Pattern=pat, PatternWidth="90", PatternHeight="45", Cycles="2", Heads=heads, Color=color))
+    s = Sequence()
+    t = 0
+    for seg in segs:
+        st = {f"E_TEXTCTRL_MH{i + 1}_Settings": mh_settings(**dict(seg)) for i in range(len(MOVING_HEADS))}
+        st["B_CHOICE_BufferStyle"] = "Per Model Default"
+        s.add(MH_GROUP, 0, "Moving Head", st, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    for seg in segs[:3]:
+        s.add("MH1", 0, "Moving Head", {"E_TEXTCTRL_MH1_Settings": mh_settings(**dict(seg, Heads="1"))}, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    out["Effect_MovingHead"] = s
+
+    # DMX channel levels: fixed values, value-curved ramps, inverted.
+    s = Sequence()
+    segs = [{f"E_SLIDER_DMX{c}": str(32 * c % 256) for c in range(1, 9)},
+            {f"E_VALUECURVE_DMX{c}": ramp(f"DMX{c}", 0, 255) for c in range(1, 9)},
+            dict({f"E_SLIDER_DMX{c}": "200" for c in range(1, 9)}, **{f"E_CHECKBOX_INVDMX{c}": "1" for c in (1, 3, 5)})]
+    t = 0
+    for seg in segs:
+        for m in ("Flood", "DmxGen"):
+            s.add(m, 0, "DMX", seg, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    # Colour effects on the RGB fixtures go through the colour ability.
+    for effect in ("On", "Color Wash"):
+        for m in ("Flood", "DmxGen"):
+            s.add(m, 0, effect, {}, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    out["Effect_DMX"] = s
+
+    # Servo: start/end positions on each servo, a value curve, 8-bit output.
+    s = Sequence()
+    segs = [{"E_CHOICE_Channel": "Servo1", "E_TEXTCTRL_Servo": "10", "E_TEXTCTRL_EndValue": "90"},
+            {"E_CHOICE_Channel": "Servo2", "E_TEXTCTRL_Servo": "80", "E_TEXTCTRL_EndValue": "20"},
+            {"E_CHOICE_Channel": "Servo1", "E_VALUECURVE_Servo": ramp("Servo", 0, 1000)},
+            {"E_CHOICE_Channel": "Servo2", "E_TEXTCTRL_Servo": "50", "E_TEXTCTRL_EndValue": "50", "E_CHECKBOX_16bit": "0"}]
+    t = 0
+    for seg in segs:
+        s.add("Servos", 0, "Servo", seg, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    out["Effect_Servo"] = s
+    return out
+
+
+def variant_scenarios(src, core_names):
+    out = {}
+    meta = json.loads((src / "resources" / "effectmetadata" / "Video.json").read_text(encoding="utf-8"))
+
+    # Video through the metadata segments, on every core model.
+    s = Sequence()
+    place_segments(s, core_names, "Video", effect_segments(meta), base={"E_FILEPICKERCTRL_Video_Filename": VIDEO_FILE})
+    out["Effect_Video"] = s
+
+    # Output variants: each node order / string type / curve sees solid
+    # primaries, white, a mix and a moving effect.
+    s = Sequence()
+    solid = lambda c: f"C_BUTTON_Palette1={c},C_CHECKBOX_Palette1=1"
+    segs = [("On", {}, solid(c)) for c in ("#FF0000", "#00FF00", "#0000FF", "#FFFFFF", "#806040")]
+    segs += [("Color Wash", {}, None), ("Bars", {"E_CHOICE_Bars_Direction": "Left"}, None),
+             ("Spirals", {"B_CHOICE_BufferStyle": "Per Preview"}, None)]
+    t = 0
+    for effect, st, pal in segs:
+        for m in VARIANTS:
+            s.add(m, 0, effect, st, t, t + SEGMENT_MS, palette=pal)
+        t += SEGMENT_MS
+    out["Feature_ModelOutput"] = s
+
+    # Sequence frame rates other than 50 ms.
+    for ms in (25, 100):
+        s = Sequence(frame_ms=ms)
+        t = 0
+        for effect in ("Bars", "Butterfly", "Meteors", "Spirals"):
+            for m in core_names:
+                s.add(m, 0, effect, {}, t, t + SEGMENT_MS)
+            t += SEGMENT_MS
+        out[f"Seq_Timing{ms}ms"] = s
+
+    # Model blending off: a group effect overlapping model effects.
+    s = Sequence(model_blending=False)
+    s.add(GROUP, 0, "Spirals", {}, 0, 3 * SEGMENT_MS)
+    for m in core_names[:6]:
+        s.add(m, 0, "Bars", {"E_CHOICE_Bars_Direction": "Left"}, SEGMENT_MS, 2 * SEGMENT_MS)
+    out["Seq_NoModelBlending"] = s
+
+    # Palette entries that are colour curves rather than fixed colours.
+    curve = "Active=TRUE|Id=ID_BUTTON_Palette{n}|Values=x=0.000^c=#ff0000;x=0.500^c=#00ff00;x=1.000^c=#0000ff|"
+    pal = PALETTE.replace("C_BUTTON_Palette1=#FF0000", "C_BUTTON_Palette1=" + curve.format(n=1)).replace(
+        "C_BUTTON_Palette2=#00FF00", "C_BUTTON_Palette2=" + curve.format(n=2).replace("#ff0000", "#ffffff"))
+    s = Sequence(palette=pal)
+    t = 0
+    for effect in ("Color Wash", "Bars", "Butterfly", "Spirals", "Twinkle"):
+        for m in core_names:
+            s.add(m, 0, effect, {}, t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    out["Feature_PaletteCurves"] = s
+
+    # Layer morph and the effect mix threshold between two layers.
+    s = Sequence()
+    t = 0
+    for mix, morph in ((25, "0"), (75, "0"), (50, "1"), (100, "1")):
+        for m in core_names:
+            s.add(m, 0, "Butterfly", {"T_SLIDER_EffectLayerMix": str(mix), "T_CHECKBOX_LayerMorph": morph}, t, t + SEGMENT_MS)
+            s.add(m, 1, "Spirals", {}, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    out["Feature_LayerMorph"] = s
+
+    # Sparkles, plain and driven by the audio.
+    s = Sequence(media=AUDIO_FILE)
+    t = 0
+    for st in ({"C_SLIDER_SparkleFrequency": "120"},
+               {"C_SLIDER_SparkleFrequency": "120", "C_CHECKBOX_MusicSparkles": "1"},
+               {"C_SLIDER_SparkleFrequency": "60", "C_CHECKBOX_MusicSparkles": "1", "C_COLOURPICKERCTRL_SparklesColour": "#00FFFF"}):
+        for m in core_names:
+            s.add(m, 0, "Color Wash", st, t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    out["Feature_Sparkles"] = s
+    return out
+
+
 def write_wav(path):
     """Kick on every beat, a slow 100Hz-4kHz sweep and a quiet chord."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -576,9 +844,9 @@ def main():
         old.unlink()
 
     model_list = models()
-    channels = write_rgbeffects(out / "xlights_rgbeffects.xml", model_list)
-    write_networks(out / "xlights_networks.xml", channels)
     names = [m[0] for m in model_list]
+    channels = write_rgbeffects(out / "xlights_rgbeffects.xml", model_list + extra_models(), names)
+    write_networks(out / "xlights_networks.xml", channels)
     elements = names + [GROUP, MIXED_GROUP]
     write_wav(out / AUDIO_FILE)
     write_png(out / IMAGE_FILE)
@@ -595,6 +863,8 @@ def main():
         place_segments(seq, names, effect, effect_segments(meta), canvas=bool(meta.get("canvasMode")))
         scenarios["Effect_" + effect.replace(" ", "")] = seq
     scenarios.update(input_scenarios(src, names))
+    scenarios.update(dmx_scenarios())
+    scenarios.update(variant_scenarios(src, names))
     scenarios.update(feature_sequences(names))
 
     for name, seq in scenarios.items():
@@ -605,7 +875,7 @@ def main():
         "frame_ms": FRAME_MS,
         "scenarios": {n: {"expected_failure": EXPECTED.get(n)} for n in sorted(scenarios)},
     }, indent=2) + "\n", encoding="utf-8")
-    print(f"{len(scenarios)} scenarios, {len(model_list)} models, {channels} channels -> {out}")
+    print(f"{len(scenarios)} scenarios, {len(model_list) + len(extra_models())} models, {channels} channels -> {out}")
 
 
 if __name__ == "__main__":

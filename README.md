@@ -21,8 +21,16 @@ The generated show contains:
 
 - 15 models (matrix, tree, arches, single line, star, wreath, icicles, window frame, sphere, cube, custom, candy canes, circle, spinner and poly line), all on one DDP controller.
 - Two groups: `All Models`, and `Mixed Group`, which mixes submodels with whole models.
+- DMX fixtures, kept out of `All Models` so the generic scenarios don't change: two advanced and two basic moving heads (RGBW and colour wheel, grouped as `Moving Heads`), an RGB floodlight, a general DMX fixture and a two-servo model.
+- 22 output variants on small lines and matrices, also kept out of `All Models`:
+  - GRB/BRG/RGBWW node order, and every RGBW handling mode
+  - single-colour white, red and intensity strings
+  - model brightness, gamma and per-colour dimming curves
+  - controller-relative, chained (`>`) and offset (`@`) start channels
+  - individual start channels
+  - a rotated matrix
 - On the matrix, two submodels and a node-range singing face. On the tree, a submodel. On the star, a node-range state definition.
-- `media/beat.wav`, a synthetic 60 s beat with a frequency sweep, and `media/gradient.png`. The generator writes both.
+- `media/beat.wav`, a synthetic 60 s beat with a frequency sweep, and `media/gradient.png`, both written by the generator. Also `media/testsrc.mp4`, a 3 s ffmpeg `testsrc2` clip, which is committed because the CI container has no ffmpeg.
 - An `Effect_<Name>` sequence for each effect, except the ones that need DMX fixtures, MIDI, video, shaders or sketch files. Each one steps through the effect's default settings, every value of each static choice, and every checkbox flipped, one second each, read from xLights' `resources/effectmetadata/*.json`. It then renders the defaults on the group, once with the default buffer and once with *Per Preview*.
 - Hand-written scenarios for the effects that need input:
   - **Faces:** each phoneme in turn, then driven by a lyric track.
@@ -30,6 +38,9 @@ The generated show contains:
   - **Pictures:** the generated image.
   - **VU Meter** and **Music:** the generated audio.
   - **Duplicate:** copies the matrix's layer onto every other model.
+  - **Video:** the test clip, through every option.
+  - **Moving Head:** positions, offsets, groupings, all 10 patterns, value curves, a path, colour, wheel, dimmer and shutter. It runs on the group and on a single fixture.
+  - **DMX** and **Servo:** levels, ramps, inversion and 8/16-bit output.
 - `Feature_*` sequences covering:
   - in/out transitions
   - all 24 layer blend methods
@@ -39,6 +50,9 @@ The generated show contains:
   - value curve shapes
   - effects fired by timing marks (Ripple, Shockwave, Fireworks, Shape)
   - submodels
+  - palette colour curves, layer morph, and sparkles, plain and music-driven
+  - every output variant (`Feature_ModelOutput`)
+- `Seq_*` sequences that vary the sequence itself: 25 ms and 100 ms frame timing, and model blending off.
 
 The audio and image are synthetic, so the show can be public.
 

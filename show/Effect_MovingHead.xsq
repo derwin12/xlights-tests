@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>20.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pan: 45.0;Tilt: 20.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pan: 45.0;Tilt: 20.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pan: 45.0;Tilt: 20.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pan: 45.0;Tilt: 20.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pan: 0.0;Tilt: 0.0;PanOffset: 30.0;TiltOffset: 10.0;Groupings: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pan: 0.0;Tilt: 0.0;PanOffset: 30.0;TiltOffset: 10.0;Groupings: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pan: 0.0;Tilt: 0.0;PanOffset: 30.0;TiltOffset: 10.0;Groupings: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pan: 0.0;Tilt: 0.0;PanOffset: 30.0;TiltOffset: 10.0;Groupings: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pan VC: Active=TRUE|Id=ID_VALUECURVE_MHPan|Type=Ramp|Min=-180|Max=180|P1=0.00|P2=100.00|RV=TRUE|;Tilt VC: Active=TRUE|Id=ID_VALUECURVE_MHTilt|Type=Ramp|Min=-90|Max=90|P1=0.00|P2=100.00|RV=TRUE|;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pan VC: Active=TRUE|Id=ID_VALUECURVE_MHPan|Type=Ramp|Min=-180|Max=180|P1=0.00|P2=100.00|RV=TRUE|;Tilt VC: Active=TRUE|Id=ID_VALUECURVE_MHTilt|Type=Ramp|Min=-90|Max=90|P1=0.00|P2=100.00|RV=TRUE|;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pan VC: Active=TRUE|Id=ID_VALUECURVE_MHPan|Type=Ramp|Min=-180|Max=180|P1=0.00|P2=100.00|RV=TRUE|;Tilt VC: Active=TRUE|Id=ID_VALUECURVE_MHTilt|Type=Ramp|Min=-90|Max=90|P1=0.00|P2=100.00|RV=TRUE|;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pan VC: Active=TRUE|Id=ID_VALUECURVE_MHPan|Type=Ramp|Min=-180|Max=180|P1=0.00|P2=100.00|RV=TRUE|;Tilt VC: Active=TRUE|Id=ID_VALUECURVE_MHTilt|Type=Ramp|Min=-90|Max=90|P1=0.00|P2=100.00|RV=TRUE|;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Path: 0.3&amp;comma;0.3@C0.5&amp;comma;0.1&amp;comma;0.7&amp;comma;0.3&amp;comma;0.7&amp;comma;0.5@L0.3&amp;comma;0.7@;PathScale: 1.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Path: 0.3&amp;comma;0.3@C0.5&amp;comma;0.1&amp;comma;0.7&amp;comma;0.3&amp;comma;0.7&amp;comma;0.5@L0.3&amp;comma;0.7@;PathScale: 1.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Path: 0.3&amp;comma;0.3@C0.5&amp;comma;0.1&amp;comma;0.7&amp;comma;0.3&amp;comma;0.7&amp;comma;0.5@L0.3&amp;comma;0.7@;PathScale: 1.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Path: 0.3&amp;comma;0.3@C0.5&amp;comma;0.1&amp;comma;0.7&amp;comma;0.3&amp;comma;0.7&amp;comma;0.5@L0.3&amp;comma;0.7@;PathScale: 1.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Wheel: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.666667&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Wheel: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.666667&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Wheel: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.666667&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Wheel: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.666667&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;Dimmer: 0.0&amp;comma;0.0&amp;comma;0.5&amp;comma;1.0&amp;comma;1.0&amp;comma;0.0;Shutter: On,E_TEXTCTRL_MH2_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;Dimmer: 0.0&amp;comma;0.0&amp;comma;0.5&amp;comma;1.0&amp;comma;1.0&amp;comma;0.0;Shutter: On,E_TEXTCTRL_MH3_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;Dimmer: 0.0&amp;comma;0.0&amp;comma;0.5&amp;comma;1.0&amp;comma;1.0&amp;comma;0.0;Shutter: On,E_TEXTCTRL_MH4_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;Dimmer: 0.0&amp;comma;0.0&amp;comma;0.5&amp;comma;1.0&amp;comma;1.0&amp;comma;0.0;Shutter: On</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;AutoShutter: 1,E_TEXTCTRL_MH2_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;AutoShutter: 1,E_TEXTCTRL_MH3_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;AutoShutter: 1,E_TEXTCTRL_MH4_Settings=Pan: 10.0;Tilt: 10.0;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000;AutoShutter: 1</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Circle;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Circle;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Circle;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Circle;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Eight;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Eight;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Eight;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Eight;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Line;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Line;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Line;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Line;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Line2;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Line2;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Line2;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Line2;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Diamond;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Diamond;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Diamond;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Diamond;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Square;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Square;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Square;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Square;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: SquareChoppy;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: SquareChoppy;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: SquareChoppy;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: SquareChoppy;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: SquareTrue;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: SquareTrue;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: SquareTrue;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: SquareTrue;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Leaf;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Leaf;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Leaf;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Leaf;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Model Default,E_TEXTCTRL_MH1_Settings=Pattern: Lissajous;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH2_Settings=Pattern: Lissajous;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH3_Settings=Pattern: Lissajous;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000,E_TEXTCTRL_MH4_Settings=Pattern: Lissajous;PatternWidth: 90;PatternHeight: 45;Cycles: 2;Heads: 1&amp;comma;2&amp;comma;3&amp;comma;4;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>E_TEXTCTRL_MH1_Settings=Pan: 45.0;Tilt: 20.0;Heads: 1;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>E_TEXTCTRL_MH1_Settings=Pan: 0.0;Tilt: 0.0;PanOffset: 30.0;TiltOffset: 10.0;Groupings: 2;Heads: 1;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+    <Effect>E_TEXTCTRL_MH1_Settings=Pan VC: Active=TRUE|Id=ID_VALUECURVE_MHPan|Type=Ramp|Min=-180|Max=180|P1=0.00|P2=100.00|RV=TRUE|;Tilt VC: Active=TRUE|Id=ID_VALUECURVE_MHTilt|Type=Ramp|Min=-90|Max=90|P1=0.00|P2=100.00|RV=TRUE|;Heads: 1;Color: 0.000000&amp;comma;1.000000&amp;comma;1.000000&amp;comma;0.333333&amp;comma;1.000000&amp;comma;1.000000</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
+    <Element collapsed="false" type="model" name="Moving Heads" visible="true" />
+    <Element collapsed="false" type="model" name="MH1" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Moving Heads">
+      <EffectLayer>
+        <Effect ref="0" name="Moving Head" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Moving Head" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Moving Head" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Moving Head" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Moving Head" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Moving Head" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Moving Head" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Moving Head" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Moving Head" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Moving Head" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Moving Head" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Moving Head" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Moving Head" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Moving Head" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Moving Head" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Moving Head" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Moving Head" startTime="16000" endTime="17000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="MH1">
+      <EffectLayer>
+        <Effect ref="17" name="Moving Head" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Moving Head" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Moving Head" startTime="19000" endTime="20000" palette="0" />
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>
