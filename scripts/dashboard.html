@@ -120,6 +120,11 @@ pre { margin: 0; font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, 
 .muted { color: var(--muted); }
 code { font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
 .about p, .about li { color: var(--ink-2); }
+.lede { color: var(--ink-2); margin: -4px 0 12px; font-size: 14px; }
+.meter { display: flex; align-items: center; gap: 8px; min-width: 160px; }
+.meter .track { flex: 1; height: 8px; border-radius: 4px; background: var(--grid); overflow: hidden; }
+.meter .fill { height: 100%; border-radius: 4px; background: var(--series-1); }
+.meter span { font-variant-numeric: tabular-nums; width: 52px; text-align: right; color: var(--ink); font-size: 13px; }
 .about ol { padding-left: 20px; }
 footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
 </style>
@@ -163,6 +168,32 @@ footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
     </div>
   </section>
 
+  <section id="coverage-section" hidden>
+    <h2>Coverage</h2>
+    <p class="lede">How much of xLights' own code (<code>src-core/</code> and <code>src-ui-wx/</code>) the scenarios run, measured on a gcov build of the same commit. <a href="coverage/index.html">Line-by-line report</a></p>
+    <div class="tiles" id="cov-tiles"></div>
+    <div class="charts" style="margin-top:12px">
+      <div class="card chart">
+        <h3>Line coverage</h3>
+        <p class="desc">Share of executable lines run at least once, per nightly run.</p>
+        <div class="plot" id="chart-coverage"></div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:15px;margin:0 0 8px">Least covered files</h3>
+        <p class="desc" style="color:var(--ink-2);font-size:13px;margin:0 0 8px">Most lines never reached. Good places for the next scenario.</p>
+        <div class="scroll" style="max-height:260px;overflow-y:auto">
+          <table><thead><tr><th>File</th><th class="num">Unreached</th><th class="num">Covered</th></tr></thead><tbody id="cov-files"></tbody></table>
+        </div>
+      </div>
+    </div>
+    <div class="card scroll" style="margin-top:12px">
+      <table>
+        <thead><tr><th>Directory</th><th class="num">Files</th><th class="num">Lines</th><th>Line coverage</th><th class="num">Functions</th></tr></thead>
+        <tbody id="cov-dirs"></tbody>
+      </table>
+    </div>
+  </section>
+
   <section>
     <h2>Scenarios</h2>
     <div class="filters" id="filters">
@@ -202,7 +233,7 @@ footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
     </div>
   </section>
 
-  <footer>Data: <a href="history.json">history.json</a> (every run) · <a href="latest.json">latest.json</a> (latest run, with failure details)</footer>
+  <footer>Data: <a href="history.json">history.json</a> (every run) · <a href="latest.json">latest.json</a> (latest run, with failure details) · <a href="coverage/coverage.json">coverage.json</a></footer>
 </main>
 
 <script>
@@ -281,14 +312,15 @@ function niceMax(v) {
 }
 function chart(hostId, opts) {
   const host = $(hostId);
-  if (history.length === 0) { host.innerHTML = '<div class="empty">No runs yet.</div>'; return; }
+  const runs = opts.data || history;
+  if (runs.length === 0) { host.innerHTML = '<div class="empty">No runs yet.</div>'; return; }
   const { svg, tip } = makeSvg(host);
   const draw = () => {
     svg.innerHTML = "";
     const W = host.clientWidth, H = 200, L = 40, R = 8, T = 8, B = 22;
     svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
-    const n = history.length, pw = W - L - R, ph = H - T - B;
-    const max = niceMax(Math.max(...history.map(opts.total)));
+    const n = runs.length, pw = W - L - R, ph = H - T - B;
+    const max = opts.max || niceMax(Math.max(...runs.map(opts.total)));
     const y = v => T + ph - (v / max) * ph;
     const step = pw / n;
     const x = i => L + step * (i + 0.5);
@@ -299,19 +331,19 @@ function chart(hostId, opts) {
       t.textContent = opts.tick(v);
     }
     const every = Math.max(1, Math.ceil(n / Math.max(1, Math.floor(pw / 70))));
-    history.forEach((h, i) => {
+    runs.forEach((h, i) => {
       if ((n - 1 - i) % every) return;
       const t = el(svg, "text", { x: x(i), y: H - 6, "text-anchor": "middle" });
       t.textContent = shortDate(h.started);
     });
-    opts.marks(svg, { x, y, step, n });
+    opts.marks(svg, { x, y, step, n, runs });
     const cross = el(svg, "line", { y1: T, y2: T + ph, stroke: "var(--axis)", "stroke-width": 1, visibility: "hidden" });
     const hit = el(svg, "rect", { x: L, y: T, width: pw, height: ph, fill: "transparent" });
     const show = ev => {
       const r = svg.getBoundingClientRect();
       const i = Math.min(n - 1, Math.max(0, Math.floor((ev.clientX - r.left - L) / step)));
       cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
-      tip.innerHTML = `<div class="t">${esc(fmtDate(history[i].started))} · ${esc(history[i].version || "")}</div>` + opts.tip(history[i]);
+      tip.innerHTML = `<div class="t">${esc(fmtDate(runs[i].started))} · ${esc(runs[i].version || "")}</div>` + opts.tip(runs[i]);
       tip.style.display = "block";
       const tw = tip.offsetWidth;
       let left = x(i) + 12;
@@ -364,6 +396,36 @@ chart("chart-time", {
   },
   tip: h => `<div class="r"><i class="dot" style="background:var(--series-1)"></i>Render time <b style="margin-left:auto;padding-left:12px">${secs(h.totals.render_s)}</b></div>`,
 });
+
+// Coverage
+if (DATA.coverage) {
+  const c = DATA.coverage;
+  const covRuns = history.filter(h => h.coverage);
+  const prevCov = covRuns.length > 1 ? covRuns[covRuns.length - 2].coverage : null;
+  const pctf = v => v.toFixed(1) + "%";
+  const delta = (now, before) => before == null ? "&nbsp;" : `${now - before >= 0 ? "+" : ""}${(now - before).toFixed(2)} points vs previous run`;
+  const n = v => v.toLocaleString();
+  $("coverage-section").hidden = false;
+  const tile = (label, value, sub) => `<div class="card tile"><div class="label">${label}</div><div class="value">${value}</div><div class="sub">${sub}</div></div>`;
+  $("cov-tiles").innerHTML =
+    tile("Lines covered", pctf(c.line_percent), `${n(c.line_covered)} of ${n(c.line_total)} · ${delta(c.line_percent, prevCov && prevCov.line)}`) +
+    tile("Functions covered", pctf(c.function_percent), `${n(c.function_covered)} of ${n(c.function_total)} · ${delta(c.function_percent, prevCov && prevCov.function)}`) +
+    tile("Source files", n(c.files), "in src-core/ and src-ui-wx/");
+  const meter = v => `<div class="meter"><div class="track"><div class="fill" style="width:${Math.min(100, v)}%"></div></div><span>${pctf(v)}</span></div>`;
+  $("cov-dirs").innerHTML = c.dirs.map(d => `<tr><td>${esc(d.dir)}</td><td class="num">${d.files}</td><td class="num">${n(d.line_covered)} / ${n(d.line_total)}</td><td>${meter(d.line_percent)}</td><td class="num">${pctf(d.function_percent)}</td></tr>`).join("");
+  $("cov-files").innerHTML = c.least_covered.map(f => `<tr><td><code style="background:none;padding:0">${esc(f.file)}</code></td><td class="num">${n(f.missed)}</td><td class="num">${pctf(f.line_percent)}</td></tr>`).join("");
+  chart("chart-coverage", {
+    data: covRuns,
+    max: 100,
+    total: h => h.coverage.line,
+    tick: v => Math.round(v) + "%",
+    marks(svg, { x, y, n, runs }) {
+      el(svg, "polyline", { points: runs.map((h, i) => `${x(i)},${y(h.coverage.line)}`).join(" "), fill: "none", stroke: "var(--series-1)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" });
+      el(svg, "circle", { cx: x(n - 1), cy: y(runs[n - 1].coverage.line), r: 4, fill: "var(--series-1)", stroke: "var(--surface)", "stroke-width": 2 });
+    },
+    tip: h => `<div class="r"><i class="dot" style="background:var(--series-1)"></i>Lines <b style="margin-left:auto;padding-left:12px">${h.coverage.line.toFixed(1)}%</b></div><div class="r" style="padding-left:16px">Functions <b style="margin-left:auto;padding-left:12px">${h.coverage.function.toFixed(1)}%</b></div>`,
+  });
+}
 
 // Scenario table
 let filter = "all";

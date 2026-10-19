@@ -9,6 +9,18 @@ Each night the workflow builds xLights master on Linux (the same build container
 2. **It repeats.** A second render is byte-identical to the first, compared with `xLights --fseqcmp`.
 3. **It matches its baseline.** The render matches `baselines/<scenario>.fseq`. On a mismatch, the failure lists which models changed and by how much.
 
+## Coverage
+
+The nightly run also builds xLights a second time with gcov (`--coverage`) and runs the same scenarios on that build. `gcovr` then measures which lines and functions of `src-core/` and `src-ui-wx/` they reached. Only the xLights objects are instrumented; wxWidgets and the other prerequisites are built first without it.
+
+The dashboard shows:
+
+- the line and function totals, and the trend over time
+- coverage per directory
+- the 40 files with the most unreached lines, which are good targets for new scenarios
+
+The full line-by-line report is at [`coverage/index.html`](https://derwin12.github.io/xlights-tests/coverage/index.html). To measure coverage on a manual run, tick **coverage** when you start it.
+
 ## The show
 
 `show/` is generated, not hand-made:

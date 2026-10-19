@@ -23,6 +23,10 @@ on:
         description: Add this run to the dashboard on GitHub Pages
         type: boolean
         default: false
+      coverage:
+        description: Also measure line coverage with a gcov build (the nightly run always does)
+        type: boolean
+        default: false
   # A pull request to this repo runs the scenarios against xLights master, so a
   # new or changed scenario is checked before it lands.
   pull_request:
@@ -119,6 +123,82 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+  # The same scenarios on a gcov-instrumented build, to measure which xLights
+  # code they reach. Only the xLights sources get --coverage: the prerequisites
+  # (wxWidgets, ISPC, ...) are built first without it, then just the xLights
+  # objects with the compiler and linker overridden.
+  coverage:
+    if: github.event_name == 'schedule' || github.event.inputs.coverage == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    container:
+      image: ghcr.io/xlightssequencer/xlights-build-docker:master
+    env:
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
+    steps:
+      - name: Checkout xlights-tests
+        uses: actions/checkout@v6
+
+      - name: Checkout xLights
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.XL_REPO }}
+          ref: ${{ env.XL_REF }}
+          path: xlights
+          submodules: "true"
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Install the test tools
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb xauth python3 python3-pip
+          pip3 install gcovr || pip3 install --break-system-packages gcovr
+          git config --global --add safe.directory '*'
+
+      - name: Restore ccache
+        uses: actions/cache@v5
+        with:
+          path: ${{ github.workspace }}/.ccache
+          key: ccache-coverage-${{ github.run_id }}
+          restore-keys: ccache-coverage-
+
+      - name: Build xLights with coverage
+        working-directory: xlights
+        run: |
+          ccache --max-size=2G
+          ccache --set-config=compression=true
+          export PATH=/usr/lib/ccache:$PATH
+          make wxwidgets33 cbp2make linkliquid ispc klightmapper makefile vulkanshaders
+          make -j $(nproc) subdirs CXX="g++ --coverage" CC="gcc --coverage" LD="g++ --coverage"
+          ccache --show-stats
+
+      - name: Run the scenarios
+        # Pass/fail is the render job's business; this run only feeds gcov.
+        run: |
+          Xvfb :99 -screen 0 1280x1024x24 -nolisten tcp &
+          export DISPLAY=:99
+          python3 scripts/run_scenarios.py --xlights xlights/bin/xLights --show show \
+            --baselines baselines --out artifacts -k "${{ github.event.inputs.filter }}" || true
+
+      - name: Measure coverage
+        working-directory: xlights
+        run: |
+          mkdir -p ../coverage
+          gcovr --root . --filter 'src-core/' --filter 'src-ui-wx/' -j $(nproc) \
+            --gcov-ignore-errors=all --gcov-ignore-parse-errors=all \
+            --json-summary ../coverage/gcovr-summary.json \
+            --html-details ../coverage/index.html --html-title "xLights render-test coverage"
+          python3 ../scripts/coverage_summary.py ../coverage/gcovr-summary.json ../coverage/coverage.json
+          du -sh ../coverage
+
+      - name: Upload the coverage report
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 30
+
   # Commits the first render of every scenario as its baseline. Run it by hand
   # after a change that is meant to alter rendering, or after adding scenarios.
   rebaseline:
@@ -159,7 +239,7 @@ jobs:
   # The dashboard on GitHub Pages. history.json is carried over from the live
   # site on every deploy, because each deploy replaces the whole site.
   publish:
-    needs: render
+    needs: [render, coverage]
     if: always() && !cancelled() && needs.render.result != 'skipped' && (github.event_name == 'schedule' || github.event.inputs.publish == 'true')
     runs-on: ubuntu-24.04
     permissions:
@@ -181,6 +261,13 @@ jobs:
         with:
           name: results
           path: results
+
+      - name: Download the coverage report
+        if: needs.coverage.result == 'success'
+        uses: actions/download-artifact@v8
+        with:
+          name: coverage
+          path: site/coverage
 
       - name: Build the dashboard
         run: |
