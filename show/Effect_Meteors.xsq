@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>13.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect></Effect>
+    <Effect>E_CHOICE_Meteors_Type=Range</Effect>
+    <Effect>E_CHOICE_Meteors_Type=Palette</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Up</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Left</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Right</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Implode</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Explode</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Icicles</Effect>
+    <Effect>E_CHOICE_Meteors_Effect=Icicles + bkg</Effect>
+    <Effect>E_CHECKBOX_FadeWithDistance=1,E_CHECKBOX_Meteors_UseMusic=1</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Preview</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Meteors" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Meteors" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Meteors" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Meteors" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Meteors" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Meteors" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Meteors" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Meteors" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Meteors" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Meteors" startTime="10000" endTime="11000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+        <Effect ref="0" name="Meteors" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="11" name="Meteors" startTime="12000" endTime="13000" palette="0" />
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>20.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect></Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Ellipse</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Triangle</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Square</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Pentagon</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Hexagon</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Octagon</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Star</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Heart</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Tree</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Snowflake</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Candy Cane</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Random</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Crucifix</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Present</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=Emoji</Effect>
+    <Effect>E_CHOICE_Shape_ObjectToDraw=SVG</Effect>
+    <Effect>E_CHECKBOX_Shape_FadeAway=0,E_CHECKBOX_Shape_FilterReg=1,E_CHECKBOX_Shape_FireTiming=1,E_CHECKBOX_Shape_HoldColour=0,E_CHECKBOX_Shape_RandomInitial=0,E_CHECKBOX_Shape_RandomLocation=0,E_CHECKBOX_Shape_UseMusic=1,E_CHECKBOX_Shapes_RandomMovement=1</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Preview</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Shape" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Shape" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Shape" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Shape" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Shape" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Shape" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Shape" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Shape" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Shape" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Shape" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Shape" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Shape" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Shape" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Shape" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Shape" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Shape" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Shape" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+        <Effect ref="0" name="Shape" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="18" name="Shape" startTime="19000" endTime="20000" palette="0" />
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

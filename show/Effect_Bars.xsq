@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>18.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect></Effect>
+    <Effect>E_CHOICE_Bars_Direction=down</Effect>
+    <Effect>E_CHOICE_Bars_Direction=expand</Effect>
+    <Effect>E_CHOICE_Bars_Direction=compress</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Left</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Right</Effect>
+    <Effect>E_CHOICE_Bars_Direction=H-expand</Effect>
+    <Effect>E_CHOICE_Bars_Direction=H-compress</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Alternate Up</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Alternate Down</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Alternate Left</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Alternate Right</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Custom Horz</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Custom Vert</Effect>
+    <Effect>E_CHOICE_Bars_Direction=Custom</Effect>
+    <Effect>E_CHECKBOX_Bars_3D=1,E_CHECKBOX_Bars_Gradient=1,E_CHECKBOX_Bars_Highlight=1,E_CHECKBOX_Bars_UseFirstColorForHighlight=1</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Preview</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Bars" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Bars" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Bars" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Bars" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Bars" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Bars" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Bars" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Bars" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Bars" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Bars" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Bars" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Bars" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Bars" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Bars" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Bars" startTime="15000" endTime="16000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+        <Effect ref="0" name="Bars" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="16" name="Bars" startTime="17000" endTime="18000" palette="0" />
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

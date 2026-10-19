@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>35.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect></Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Lines Inward</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Lines Outward</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Lines Both</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Lines Inward Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Lines Outward Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Lines Both Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Solid Inward</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Solid Outward</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Solid Both</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Solid Inward Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Solid Outward Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Solid Both Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Highlight Inward</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Highlight Outward</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Highlight Both</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Highlight Inward Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Highlight Outward Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Draw_Style=Highlight Both Ripple</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Square</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Triangle</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Star</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Polygon</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Heart</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Tree</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Candy Cane</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Snow Flake</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Crucifix</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=Present</Effect>
+    <Effect>E_CHOICE_Ripple_Object_To_Draw=SVG</Effect>
+    <Effect>E_CHOICE_Ripple_Movement=Implode</Effect>
+    <Effect>E_CHOICE_Ripple_Movement=None</Effect>
+    <Effect>E_CHECKBOX_Ripple3D=1,E_CHECKBOX_Ripple_FilterRegex=1</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Preview</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Ripple" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Ripple" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Ripple" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Ripple" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Ripple" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Ripple" startTime="6000" endTime="7000" palette="0" />
+        <Effect ref="7" name="Ripple" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="8" name="Ripple" startTime="8000" endTime="9000" palette="0" />
+        <Effect ref="9" name="Ripple" startTime="9000" endTime="10000" palette="0" />
+        <Effect ref="10" name="Ripple" startTime="10000" endTime="11000" palette="0" />
+        <Effect ref="11" name="Ripple" startTime="11000" endTime="12000" palette="0" />
+        <Effect ref="12" name="Ripple" startTime="12000" endTime="13000" palette="0" />
+        <Effect ref="13" name="Ripple" startTime="13000" endTime="14000" palette="0" />
+        <Effect ref="14" name="Ripple" startTime="14000" endTime="15000" palette="0" />
+        <Effect ref="15" name="Ripple" startTime="15000" endTime="16000" palette="0" />
+        <Effect ref="16" name="Ripple" startTime="16000" endTime="17000" palette="0" />
+        <Effect ref="17" name="Ripple" startTime="17000" endTime="18000" palette="0" />
+        <Effect ref="18" name="Ripple" startTime="18000" endTime="19000" palette="0" />
+        <Effect ref="19" name="Ripple" startTime="19000" endTime="20000" palette="0" />
+        <Effect ref="20" name="Ripple" startTime="20000" endTime="21000" palette="0" />
+        <Effect ref="21" name="Ripple" startTime="21000" endTime="22000" palette="0" />
+        <Effect ref="22" name="Ripple" startTime="22000" endTime="23000" palette="0" />
+        <Effect ref="23" name="Ripple" startTime="23000" endTime="24000" palette="0" />
+        <Effect ref="24" name="Ripple" startTime="24000" endTime="25000" palette="0" />
+        <Effect ref="25" name="Ripple" startTime="25000" endTime="26000" palette="0" />
+        <Effect ref="26" name="Ripple" startTime="26000" endTime="27000" palette="0" />
+        <Effect ref="27" name="Ripple" startTime="27000" endTime="28000" palette="0" />
+        <Effect ref="28" name="Ripple" startTime="28000" endTime="29000" palette="0" />
+        <Effect ref="29" name="Ripple" startTime="29000" endTime="30000" palette="0" />
+        <Effect ref="30" name="Ripple" startTime="30000" endTime="31000" palette="0" />
+        <Effect ref="31" name="Ripple" startTime="31000" endTime="32000" palette="0" />
+        <Effect ref="32" name="Ripple" startTime="32000" endTime="33000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+        <Effect ref="0" name="Ripple" startTime="33000" endTime="34000" palette="0" />
+        <Effect ref="33" name="Ripple" startTime="34000" endTime="35000" palette="0" />
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

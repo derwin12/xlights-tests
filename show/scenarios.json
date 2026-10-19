@@ -1,0 +1,144 @@
+{
+  "channels": 5979,
+  "frame_ms": 50,
+  "scenarios": {
+    "Effect_Bars": {
+      "expected_failure": null
+    },
+    "Effect_Butterfly": {
+      "expected_failure": null
+    },
+    "Effect_Candle": {
+      "expected_failure": null
+    },
+    "Effect_Circles": {
+      "expected_failure": null
+    },
+    "Effect_ColorWash": {
+      "expected_failure": null
+    },
+    "Effect_Curtain": {
+      "expected_failure": null
+    },
+    "Effect_Fan": {
+      "expected_failure": null
+    },
+    "Effect_Fill": {
+      "expected_failure": null
+    },
+    "Effect_Fire": {
+      "expected_failure": null
+    },
+    "Effect_Fireworks": {
+      "expected_failure": null
+    },
+    "Effect_Galaxy": {
+      "expected_failure": null
+    },
+    "Effect_Garlands": {
+      "expected_failure": null
+    },
+    "Effect_Kaleidoscope": {
+      "expected_failure": null
+    },
+    "Effect_Life": {
+      "expected_failure": null
+    },
+    "Effect_Lightning": {
+      "expected_failure": null
+    },
+    "Effect_Lines": {
+      "expected_failure": null
+    },
+    "Effect_Liquid": {
+      "expected_failure": "physics simulation (LiquidFun) is not deterministic"
+    },
+    "Effect_Marquee": {
+      "expected_failure": null
+    },
+    "Effect_Meteors": {
+      "expected_failure": null
+    },
+    "Effect_Morph": {
+      "expected_failure": null
+    },
+    "Effect_Off": {
+      "expected_failure": null
+    },
+    "Effect_On": {
+      "expected_failure": null
+    },
+    "Effect_Pinwheel": {
+      "expected_failure": null
+    },
+    "Effect_Plasma": {
+      "expected_failure": null
+    },
+    "Effect_Ripple": {
+      "expected_failure": null
+    },
+    "Effect_Shape": {
+      "expected_failure": null
+    },
+    "Effect_Shimmer": {
+      "expected_failure": null
+    },
+    "Effect_Shockwave": {
+      "expected_failure": null
+    },
+    "Effect_SingleStrand": {
+      "expected_failure": null
+    },
+    "Effect_Snowflakes": {
+      "expected_failure": null
+    },
+    "Effect_Snowstorm": {
+      "expected_failure": null
+    },
+    "Effect_Spirals": {
+      "expected_failure": null
+    },
+    "Effect_Spirograph": {
+      "expected_failure": null
+    },
+    "Effect_Strobe": {
+      "expected_failure": null
+    },
+    "Effect_Tendril": {
+      "expected_failure": null
+    },
+    "Effect_Text": {
+      "expected_failure": null
+    },
+    "Effect_Tree": {
+      "expected_failure": null
+    },
+    "Effect_Twinkle": {
+      "expected_failure": null
+    },
+    "Effect_Warp": {
+      "expected_failure": null
+    },
+    "Effect_Wave": {
+      "expected_failure": null
+    },
+    "Feature_BufferTransforms": {
+      "expected_failure": null
+    },
+    "Feature_ColorAdjust": {
+      "expected_failure": null
+    },
+    "Feature_GroupBuffers": {
+      "expected_failure": null
+    },
+    "Feature_LayerBlend": {
+      "expected_failure": null
+    },
+    "Feature_Transitions": {
+      "expected_failure": null
+    },
+    "Feature_ValueCurves": {
+      "expected_failure": null
+    }
+  }
+}

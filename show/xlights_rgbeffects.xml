@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xrgb>
+  <models type="rgb_effects">
+    <model name="Matrix" DisplayAs="Matrix" StringType="RGB Nodes" StartChannel="1" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="-300" WorldPosY="150" WorldPosZ="0" NumStrings="16" NodesPerString="32" StrandsPerString="1" Vertical="false" NoZig="false" AlternateNodes="false" ScaleX="1.6" ScaleY="0.8" />
+    <model name="Tree" DisplayAs="Tree" StringType="RGB Nodes" StartChannel="1537" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="0" WorldPosY="150" WorldPosZ="0" NumStrings="12" NodesPerString="50" StrandsPerString="1" TreeType="0" TreeDegrees="360" TreeRotation="3" TreeSpiralRotations="0" TreeBottomTopRatio="6" TreePerspective="0.2" StrandDir="Vertical" ScaleX="0.5" ScaleY="0.8" />
+    <model name="Arches" DisplayAs="Arches" StringType="RGB Nodes" StartChannel="3337" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="-300" WorldPosY="-50" WorldPosZ="0" NumArches="3" NodesPerArch="25" Arc="180" Hollow="70" LightsPerNode="1" Height="1.0" X2="150" Y2="0" Z2="0" />
+    <model name="Line" DisplayAs="Single Line" StringType="RGB Nodes" StartChannel="3562" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="-150" WorldPosY="-120" WorldPosZ="0" NumStrings="1" NodesPerString="50" LightsPerNode="1" X2="300" Y2="0" Z2="0" />
+    <model name="Star" DisplayAs="Star" StringType="RGB Nodes" StartChannel="3712" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="250" WorldPosY="200" WorldPosZ="0" NumStrings="1" NodesPerString="40" StarPoints="5" LayerSizes="40" starRatio="2.618034" StarStartLocation="Top Ctr-CW" ScaleX="0.4" ScaleY="0.4" />
+    <model name="Wreath" DisplayAs="Wreath" StringType="RGB Nodes" StartChannel="3832" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="250" WorldPosY="50" WorldPosZ="0" NumStrings="1" NodesPerString="40" ScaleX="0.4" ScaleY="0.4" />
+    <model name="Icicles" DisplayAs="Icicles" StringType="RGB Nodes" StartChannel="3952" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="-200" WorldPosY="300" WorldPosZ="0" NumStrings="1" NodesPerString="80" DropPattern="3,4,5,4" AlternateNodes="false" X2="400" Y2="0" Z2="0" />
+    <model name="Window" DisplayAs="Window Frame" StringType="RGB Nodes" StartChannel="4192" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="300" WorldPosY="-80" WorldPosZ="0" TopNodes="20" SideNodes="12" BottomNodes="20" Rotation="Clockwise" ScaleX="0.8" ScaleY="0.6" />
+    <model name="Sphere" DisplayAs="Sphere" StringType="RGB Nodes" StartChannel="4384" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="450" WorldPosY="150" WorldPosZ="0" NumStrings="10" NodesPerString="30" StrandsPerString="1" Degrees="360" StartLatitude="-75" EndLatitude="75" NoZig="false" AlternateNodes="false" ScaleX="0.5" ScaleY="0.5" ScaleZ="0.5" />
+    <model name="Cube" DisplayAs="Cube" StringType="RGB Nodes" StartChannel="5284" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="450" WorldPosY="-50" WorldPosZ="0" CubeWidth="6" CubeHeight="6" CubeDepth="6" Strings="1" Start="Front Bottom Left" Style="Horizontal Left/Right" StrandPerLine="Zig Zag" StrandPerLayer="FALSE" ScaleX="0.5" ScaleY="0.5" ScaleZ="0.5" />
+    <model name="Custom" DisplayAs="Custom" StringType="RGB Nodes" StartChannel="5932" StartSide="B" Dir="L" Antialias="1" PixelSize="2" Transparency="0" LayoutGroup="Default" versionNumber="8" WorldPosX="-450" WorldPosY="50" WorldPosZ="0" CustomWidth="7" CustomHeight="7" Depth="1" CustomModelCompressed="1,0,2,0;2,0,3,0;3,0,4,0;4,1,1,0;5,1,5,0;6,2,0,0;7,2,6,0;8,3,0,0;9,3,6,0;10,4,0,0;11,4,6,0;12,5,1,0;13,5,5,0;14,6,2,0;15,6,3,0;16,6,4,0" ScaleX="0.4" ScaleY="0.4" />
+  </models>
+  <modelGroups type="rgb_effects">
+    <modelGroup name="All Models" DisplayAs="ModelGroup" DefaultCamera="2D" GridSize="400" layout="minimalGrid" LayoutGroup="Default" models="Matrix,Tree,Arches,Line,Star,Wreath,Icicles,Window,Sphere,Cube,Custom" />
+  </modelGroups>
+  <view_objects />
+  <layoutGroups />
+  <perspectives />
+  <settings />
+</xrgb>

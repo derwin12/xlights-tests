@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xLights Render Tests</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%277%27 fill=%27%230ca30c%27/%3E%3C/svg%3E">
+<meta name="description" content="Nightly headless render regression tests for xLights master.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --wash: rgba(11,11,11,0.04);
+  --series-1: #2a78d6;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --critical: #d03b3b;
+  --warning: #fab219;
+  --skip: #b9b7ae;
+  --code-bg: #f0efec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --wash: rgba(255,255,255,0.05);
+    --series-1: #3987e5;
+    --good-text: #0ca30c;
+    --skip: #5c5b56;
+    --code-bg: #232322;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255,255,255,0.10);
+  --wash: rgba(255,255,255,0.05);
+  --series-1: #3987e5;
+  --good-text: #0ca30c;
+  --skip: #5c5b56;
+  --code-bg: #232322;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--series-1); }
+main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; }
+header h1 { font-size: 28px; line-height: 1.2; margin: 0 0 4px; }
+header p { margin: 0; color: var(--ink-2); }
+.meta { margin-top: 12px; color: var(--ink-2); font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.meta b { color: var(--ink); font-weight: 600; }
+section { margin-top: 32px; }
+h2 { font-size: 18px; margin: 0 0 12px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile .label { color: var(--ink-2); font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.tile .value { font-size: 30px; font-weight: 600; line-height: 1.2; margin-top: 4px; }
+.tile .sub { color: var(--muted); font-size: 13px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+.badge { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.badge .ic { width: 16px; height: 16px; border-radius: 50%; color: #fff; font-size: 11px; line-height: 16px; text-align: center; flex: none; }
+.s-pass .ic { background: var(--good); } .s-pass { color: var(--good-text); }
+.s-fail .ic { background: var(--critical); } .s-fail { color: var(--critical); }
+.s-xfail .ic { background: var(--warning); color: #3a2a00; } .s-xfail { color: var(--ink-2); }
+.s-skip .ic { background: var(--skip); } .s-skip { color: var(--muted); }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+.chart h3 { font-size: 15px; margin: 0; }
+.chart .desc { color: var(--ink-2); font-size: 13px; margin: 2px 0 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.plot { position: relative; }
+.plot svg { display: block; width: 100%; height: 200px; overflow: visible; }
+.plot text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.tip {
+  position: absolute; pointer-events: none; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); white-space: nowrap; display: none; z-index: 2;
+}
+.tip .t { color: var(--ink-2); margin-bottom: 4px; }
+.tip .r { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.empty { color: var(--muted); font-size: 14px; padding: 40px 0; text-align: center; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.filters button {
+  font: inherit; font-size: 13px; border: 1px solid var(--border); background: var(--surface); color: var(--ink);
+  border-radius: 999px; padding: 4px 12px; cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-weight: 600; color: var(--ink-2); font-size: 13px; padding: 6px 10px; border-bottom: 1px solid var(--axis); white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.has-detail { cursor: pointer; }
+tr.has-detail:hover td { background: var(--wash); }
+tr.detail td { background: var(--wash); }
+pre { margin: 0; font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; overflow-x: auto; color: var(--ink); }
+.up { color: var(--critical); } .down { color: var(--good-text); }
+.muted { color: var(--muted); }
+code { font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+.about p, .about li { color: var(--ink-2); }
+.about ol { padding-left: 20px; }
+footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>xLights render tests</h1>
+    <p>Every night, xLights master is built on Linux and each reference sequence is rendered headless, twice, then compared with its baseline.</p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <section>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section id="failures-section" hidden>
+    <h2>Failing now</h2>
+    <div class="card" id="failures"></div>
+  </section>
+
+  <section>
+    <h2>Trends</h2>
+    <div class="charts">
+      <div class="card chart">
+        <h3>Results per run</h3>
+        <p class="desc">Scenario outcomes for each nightly run.</p>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--good)"></i>Passed</span>
+          <span><i class="dot" style="background:var(--critical)"></i>Failed</span>
+          <span><i class="dot" style="background:var(--warning)"></i>Expected failure</span>
+          <span><i class="dot" style="background:var(--skip)"></i>Skipped</span>
+        </div>
+        <div class="plot" id="chart-results"></div>
+      </div>
+      <div class="card chart">
+        <h3>Total render time</h3>
+        <p class="desc">Seconds spent rendering all scenarios once, excluding startup.</p>
+        <div class="plot" id="chart-time"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Scenarios</h2>
+    <div class="filters" id="filters">
+      <button data-f="all" aria-pressed="true">All</button>
+      <button data-f="problem" aria-pressed="false">Not passing</button>
+      <button data-f="Effect_" aria-pressed="false">Effects</button>
+      <button data-f="Feature_" aria-pressed="false">Features</button>
+    </div>
+    <div class="card scroll">
+      <table>
+        <thead><tr><th>Status</th><th>Scenario</th><th class="num">Render</th><th class="num">vs previous</th><th>Baseline</th><th>Repeatable</th></tr></thead>
+        <tbody id="scenarios"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recent runs</h2>
+    <div class="card scroll">
+      <table>
+        <thead><tr><th>Date</th><th>xLights</th><th class="num">Passed</th><th class="num">Failed</th><th class="num">Expected</th><th class="num">Skipped</th><th class="num">Render</th><th>Links</th></tr></thead>
+        <tbody id="runs"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>How it works</h2>
+    <div class="card">
+      <ol>
+        <li>The show in <code>show/</code> is generated by <code>scripts/gen_show.py</code>: 11 models covering the common model types plus one group, and one animation sequence per effect. Each effect sequence steps through the default settings, every value of each choice and all checkboxes flipped, then renders the defaults on the group. The <code>Feature_</code> sequences cover transitions, layer blending, group buffer styles, buffer transforms, colour adjustments and value curves.</li>
+        <li>Each sequence is rendered with <code>xLights --headless</code> in its own process, so a crash fails only that scenario.</li>
+        <li>It is rendered a second time, and the two <code>.fseq</code> files must be identical.</li>
+        <li>The first render is compared with <code>baselines/&lt;name&gt;.fseq</code> using <code>xLights --fseqcmp</code>. A mismatch lists the models that changed.</li>
+      </ol>
+      <p>A change that is meant to alter rendering needs new baselines: run the workflow by hand with <b>rebaseline</b> ticked and it commits the new <code>.fseq</code> files. To add a scenario, extend <code>gen_show.py</code>, regenerate the show, and rebaseline.</p>
+    </div>
+  </section>
+
+  <footer>Data: <a href="history.json">history.json</a> (every run) · <a href="latest.json">latest.json</a> (latest run, with failure details)</footer>
+</main>
+
+<script>
+const DATA = /*__DATA__*/null;
+const latest = DATA.latest, history = DATA.history;
+const prev = history.length > 1 ? history[history.length - 2] : null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const NS = "http://www.w3.org/2000/svg";
+const STATUS = {
+  pass:  { label: "Passed", ic: "✓", color: "var(--good)" },
+  fail:  { label: "Failed", ic: "✕", color: "var(--critical)" },
+  xfail: { label: "Expected failure", ic: "!", color: "var(--warning)" },
+  skip:  { label: "Skipped", ic: "–", color: "var(--skip)" },
+};
+const badge = s => `<span class="badge s-${s}"><span class="ic" aria-hidden="true">${STATUS[s].ic}</span>${STATUS[s].label}</span>`;
+const fmtDate = iso => new Date(iso).toLocaleString(undefined, { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+const shortDate = iso => new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+const secs = v => v == null ? "–" : (v < 10 ? v.toFixed(3) : v.toFixed(1)) + " s";
+const commitUrl = h => h.repo && h.sha ? `https://github.com/${h.repo}/commit/${h.sha}` : null;
+
+// Header
+{
+  const c = commitUrl(latest);
+  $("meta").innerHTML = [
+    `Latest run <b>${esc(fmtDate(latest.started))}</b>`,
+    `xLights <b>${esc(latest.version || latest.ref)}</b>`,
+    c ? `<a href="${c}">commit ${esc(latest.sha.slice(0, 9))}</a>` : "",
+    `<a href="${esc(DATA.run_url)}">run log</a>`,
+  ].filter(Boolean).join("");
+}
+
+// Tiles
+{
+  const t = latest.totals;
+  const d = prev ? t.render_s - prev.totals.render_s : null;
+  const pct = prev && prev.totals.render_s ? (d / prev.totals.render_s) * 100 : null;
+  const tile = (dot, label, value, sub) => `<div class="card tile"><div class="label">${dot ? `<i class="dot" style="background:${dot}"></i>` : ""}${label}</div><div class="value">${value}</div><div class="sub">${sub}</div></div>`;
+  $("tiles").innerHTML =
+    tile(STATUS.pass.color, "Passed", t.pass, `of ${t.total} scenarios`) +
+    tile(STATUS.fail.color, "Failed", t.fail, prev ? `${prev.totals.fail} in the previous run` : "&nbsp;") +
+    tile(STATUS.xfail.color, "Expected failures", t.xfail, "known non-deterministic") +
+    tile(STATUS.skip.color, "Skipped", t.skip, t.skip ? "no baseline yet" : "&nbsp;") +
+    tile(null, "Render time", secs(t.render_s), pct == null ? "&nbsp;" : `${pct >= 0 ? "+" : ""}${pct.toFixed(1)}% vs previous run`);
+}
+
+// Failures
+{
+  const bad = latest.scenarios.filter(s => s.status === "fail");
+  if (bad.length) {
+    $("failures-section").hidden = false;
+    $("failures").innerHTML = bad.map(s => `<div style="margin-bottom:14px">${badge("fail")} <b>${esc(s.name)}</b><pre style="margin-top:6px">${esc(s.detail)}</pre></div>`).join("");
+  }
+}
+
+// Charts
+function makeSvg(host) {
+  const svg = document.createElementNS(NS, "svg");
+  host.appendChild(svg);
+  const tip = document.createElement("div");
+  tip.className = "tip";
+  host.appendChild(tip);
+  return { svg, tip };
+}
+function el(parent, name, attrs) {
+  const e = document.createElementNS(NS, name);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  parent.appendChild(e);
+  return e;
+}
+function niceMax(v) {
+  if (v <= 0) return 1;
+  const p = Math.pow(10, Math.floor(Math.log10(v)));
+  for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= v) return m * p;
+  return 10 * p;
+}
+function chart(hostId, opts) {
+  const host = $(hostId);
+  if (history.length === 0) { host.innerHTML = '<div class="empty">No runs yet.</div>'; return; }
+  const { svg, tip } = makeSvg(host);
+  const draw = () => {
+    svg.innerHTML = "";
+    const W = host.clientWidth, H = 200, L = 40, R = 8, T = 8, B = 22;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const n = history.length, pw = W - L - R, ph = H - T - B;
+    const max = niceMax(Math.max(...history.map(opts.total)));
+    const y = v => T + ph - (v / max) * ph;
+    const step = pw / n;
+    const x = i => L + step * (i + 0.5);
+    for (let k = 0; k <= 4; k++) {
+      const v = (max / 4) * k;
+      el(svg, "line", { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: k ? "var(--grid)" : "var(--axis)", "stroke-width": 1 });
+      const t = el(svg, "text", { x: L - 6, y: y(v) + 4, "text-anchor": "end" });
+      t.textContent = opts.tick(v);
+    }
+    const every = Math.max(1, Math.ceil(n / Math.max(1, Math.floor(pw / 70))));
+    history.forEach((h, i) => {
+      if ((n - 1 - i) % every) return;
+      const t = el(svg, "text", { x: x(i), y: H - 6, "text-anchor": "middle" });
+      t.textContent = shortDate(h.started);
+    });
+    opts.marks(svg, { x, y, step, n });
+    const cross = el(svg, "line", { y1: T, y2: T + ph, stroke: "var(--axis)", "stroke-width": 1, visibility: "hidden" });
+    const hit = el(svg, "rect", { x: L, y: T, width: pw, height: ph, fill: "transparent" });
+    const show = ev => {
+      const r = svg.getBoundingClientRect();
+      const i = Math.min(n - 1, Math.max(0, Math.floor((ev.clientX - r.left - L) / step)));
+      cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
+      tip.innerHTML = `<div class="t">${esc(fmtDate(history[i].started))} · ${esc(history[i].version || "")}</div>` + opts.tip(history[i]);
+      tip.style.display = "block";
+      const tw = tip.offsetWidth;
+      let left = x(i) + 12;
+      if (left + tw > W) left = x(i) - tw - 12;
+      tip.style.left = Math.max(0, left) + "px";
+      tip.style.top = T + "px";
+    };
+    hit.addEventListener("pointermove", show);
+    hit.addEventListener("pointerdown", show);
+    hit.addEventListener("pointerleave", () => { tip.style.display = "none"; cross.setAttribute("visibility", "hidden"); });
+  };
+  draw();
+  new ResizeObserver(draw).observe(host);
+}
+const ORDER = ["pass", "xfail", "skip", "fail"];
+chart("chart-results", {
+  total: h => h.totals.total,
+  tick: v => Math.round(v),
+  marks(svg, { x, y, step }) {
+    const bw = Math.max(3, Math.min(18, step * 0.6));
+    history.forEach((h, i) => {
+      let base = 0;
+      const segs = ORDER.filter(s => h.totals[s] > 0);
+      segs.forEach((s, j) => {
+        const v = h.totals[s];
+        const y0 = y(base), y1 = y(base + v);
+        const gap = j < segs.length - 1 ? 2 : 0;
+        const top = y1 + gap, hgt = Math.max(0, y0 - y1 - gap);
+        const left = x(i) - bw / 2;
+        if (j === segs.length - 1) {
+          const r = Math.min(4, bw / 2, hgt);
+          el(svg, "path", { d: `M${left},${y0} V${top + r} Q${left},${top} ${left + r},${top} H${left + bw - r} Q${left + bw},${top} ${left + bw},${top + r} V${y0} Z`, fill: STATUS[s].color });
+        } else {
+          el(svg, "rect", { x: left, y: top, width: bw, height: hgt, fill: STATUS[s].color });
+        }
+        base += v;
+      });
+    });
+  },
+  tip: h => ORDER.slice().reverse().map(s => `<div class="r"><i class="dot" style="background:${STATUS[s].color}"></i>${STATUS[s].label} <b style="margin-left:auto;padding-left:12px">${h.totals[s]}</b></div>`).join(""),
+});
+chart("chart-time", {
+  total: h => h.totals.render_s,
+  tick: v => v.toFixed(v < 10 ? 1 : 0),
+  marks(svg, { x, y, n }) {
+    const pts = history.map((h, i) => `${x(i)},${y(h.totals.render_s)}`).join(" ");
+    el(svg, "polyline", { points: pts, fill: "none", stroke: "var(--series-1)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" });
+    const last = history[n - 1];
+    el(svg, "circle", { cx: x(n - 1), cy: y(last.totals.render_s), r: 4, fill: "var(--series-1)", stroke: "var(--surface)", "stroke-width": 2 });
+  },
+  tip: h => `<div class="r"><i class="dot" style="background:var(--series-1)"></i>Render time <b style="margin-left:auto;padding-left:12px">${secs(h.totals.render_s)}</b></div>`,
+});
+
+// Scenario table
+let filter = "all";
+function renderScenarios() {
+  const rows = latest.scenarios.filter(s =>
+    filter === "all" ? true : filter === "problem" ? s.status !== "pass" : s.name.startsWith(filter));
+  const order = { fail: 0, xfail: 1, skip: 2, pass: 3 };
+  rows.sort((a, b) => order[a.status] - order[b.status] || a.name.localeCompare(b.name));
+  $("scenarios").innerHTML = rows.map((s, i) => {
+    const p = prev && prev.scenarios[s.name];
+    let delta = '<span class="muted">–</span>';
+    if (p && p[1] && s.render_s) {
+      const pct = ((s.render_s - p[1]) / p[1]) * 100;
+      // Tiny renders are mostly timer noise: only colour a change that is big in both terms.
+      const big = Math.abs(pct) >= 25 && Math.abs(s.render_s - p[1]) >= 0.05;
+      const cls = !big ? "muted" : pct > 0 ? "up" : "down";
+      delta = `<span class="${cls}">${pct >= 0 ? "+" : ""}${pct.toFixed(0)}%</span>`;
+    }
+    const base = { match: "Matches", differ: "Differs", missing: '<span class="muted">None yet</span>' }[s.baseline] || '<span class="muted">–</span>';
+    const det = s.deterministic == null ? '<span class="muted">–</span>' : s.deterministic ? "Yes" : "No";
+    const note = s.expected_failure ? `<div class="muted" style="font-size:13px">${esc(s.expected_failure)}</div>` : "";
+    const detail = s.detail && s.status !== "pass" ? `<tr class="detail" id="d${i}" hidden><td colspan="6"><pre>${esc(s.detail)}</pre></td></tr>` : "";
+    return `<tr${detail ? ` class="has-detail" data-d="d${i}" title="Show details"` : ""}><td>${badge(s.status)}</td><td>${esc(s.name)}${note}</td><td class="num">${secs(s.render_s)}</td><td class="num">${delta}</td><td>${base}</td><td>${det}</td></tr>${detail}`;
+  }).join("") || '<tr><td colspan="6" class="muted">Nothing to show.</td></tr>';
+}
+$("scenarios").addEventListener("click", ev => {
+  const tr = ev.target.closest("tr.has-detail");
+  if (tr) { const d = $(tr.dataset.d); d.hidden = !d.hidden; }
+});
+$("filters").addEventListener("click", ev => {
+  const b = ev.target.closest("button");
+  if (!b) return;
+  filter = b.dataset.f;
+  for (const x of $("filters").children) x.setAttribute("aria-pressed", x === b);
+  renderScenarios();
+});
+renderScenarios();
+
+// Runs table
+$("runs").innerHTML = history.slice(-30).reverse().map(h => {
+  const c = commitUrl(h);
+  const t = h.totals;
+  return `<tr><td>${esc(fmtDate(h.started))}</td><td>${esc(h.version || h.ref)}</td><td class="num">${t.pass}</td><td class="num">${t.fail ? `<b class="s-fail">${t.fail}</b>` : 0}</td><td class="num">${t.xfail}</td><td class="num">${t.skip}</td><td class="num">${secs(t.render_s)}</td><td><a href="${esc(h.run_url)}">run</a>${c ? ` · <a href="${c}">commit</a>` : ""}</td></tr>`;
+}).join("");
+</script>
+</body>
+</html>

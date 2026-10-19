@@ -1,0 +1,199 @@
+name: Render scenarios
+
+on:
+  schedule:
+    # 08:00 UTC, the middle of the night in the US
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+    inputs:
+      xlights_repo:
+        description: xLights repository to test
+        default: xLightsSequencer/xLights
+      xlights_ref:
+        description: xLights branch, tag or commit to test
+        default: master
+      filter:
+        description: Only scenarios whose name contains this (empty = all)
+        default: ""
+      rebaseline:
+        description: Commit this run's renders as the new baselines
+        type: boolean
+        default: false
+      publish:
+        description: Add this run to the dashboard on GitHub Pages
+        type: boolean
+        default: false
+  # A pull request to this repo runs the scenarios against xLights master, so a
+  # new or changed scenario is checked before it lands.
+  pull_request:
+
+concurrency:
+  group: render-${{ github.event.pull_request.number || github.ref }}-${{ github.event.inputs.xlights_ref || 'master' }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  XL_REPO: ${{ github.event.inputs.xlights_repo || 'xLightsSequencer/xLights' }}
+  XL_REF: ${{ github.event.inputs.xlights_ref || 'master' }}
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    container:
+      image: ghcr.io/xlightssequencer/xlights-build-docker:master
+    env:
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
+    steps:
+      - name: Checkout xlights-tests
+        uses: actions/checkout@v4
+
+      - name: Checkout xLights
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.XL_REPO }}
+          ref: ${{ env.XL_REF }}
+          path: xlights
+          submodules: "true"
+          # Full history without blobs: enough for `git describe` to name the
+          # version, without downloading every file ever committed.
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Install the test tools
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb xauth python3
+          git config --global --add safe.directory '*'
+
+      - name: Restore ccache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.ccache
+          key: ccache-render-${{ github.run_id }}
+          restore-keys: ccache-render-
+
+      - name: Build xLights
+        working-directory: xlights
+        run: |
+          ccache --max-size=2G
+          ccache --set-config=compression=true
+          ccache --zero-stats
+          PATH=/usr/lib/ccache:$PATH make -j $(nproc)
+          ccache --show-stats
+
+      - name: Run the scenarios
+        id: run
+        run: |
+          export XL_SHA=$(git -C xlights rev-parse HEAD)
+          export XL_VERSION=$(git -C xlights describe --tags --always 2>/dev/null || git -C xlights rev-parse --short HEAD)
+          # The wx app initialises GTK even for --headless and --fseqcmp.
+          Xvfb :99 -screen 0 1280x1024x24 -nolisten tcp &
+          export DISPLAY=:99
+          python3 scripts/run_scenarios.py --xlights xlights/bin/xLights --show show \
+            --baselines baselines --out artifacts -k "${{ github.event.inputs.filter }}"
+
+      - name: Summarize
+        if: always()
+        run: python3 scripts/ci_summary.py artifacts/results.json >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: |
+            artifacts/results.json
+            artifacts/junit.xml
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload the renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: renders
+          path: artifacts/fseq/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  # Commits the first render of every scenario as its baseline. Run it by hand
+  # after a change that is meant to alter rendering, or after adding scenarios.
+  rebaseline:
+    needs: render
+    if: always() && !cancelled() && github.event.inputs.rebaseline == 'true' && needs.render.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout xlights-tests
+        uses: actions/checkout@v4
+
+      - name: Download the renders
+        uses: actions/download-artifact@v4
+        with:
+          name: renders
+          path: baselines
+
+      - name: Download the results
+        uses: actions/download-artifact@v4
+        with:
+          name: results
+          path: results
+
+      - name: Commit the baselines
+        run: |
+          version=$(python3 -c "import json;d=json.load(open('results/results.json'));print(d['version'] or d['sha'][:9])")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add baselines
+          if git diff --cached --quiet; then
+            echo "Baselines unchanged."
+          else
+            git commit -m "Rebaseline against xLights $version" -m "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            git push
+          fi
+
+  # The dashboard on GitHub Pages. history.json is carried over from the live
+  # site on every deploy, because each deploy replaces the whole site.
+  publish:
+    needs: render
+    if: always() && !cancelled() && needs.render.result != 'skipped' && (github.event_name == 'schedule' || github.event.inputs.publish == 'true')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Checkout xlights-tests
+        uses: actions/checkout@v4
+
+      - name: Download the results
+        uses: actions/download-artifact@v4
+        with:
+          name: results
+          path: results
+
+      - name: Build the dashboard
+        run: |
+          curl -fsSL "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/history.json" \
+            -o history.json || echo "no published history yet"
+          python3 scripts/build_site.py results/results.json site history.json \
+            "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy
+        id: deploy
+        uses: actions/deploy-pages@v4
