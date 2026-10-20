@@ -214,7 +214,7 @@ footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
     <h2>Recent runs</h2>
     <div class="card scroll">
       <table>
-        <thead><tr><th>Date</th><th>xLights</th><th class="num">Passed</th><th class="num">Failed</th><th class="num">Expected</th><th class="num">Skipped</th><th class="num">Render</th><th>Links</th></tr></thead>
+        <thead><tr><th>Date</th><th>xLights</th><th class="num">Passed</th><th class="num">Failed</th><th class="num">Expected</th><th class="num">Skipped</th><th class="num">Render</th><th>CPU</th><th>Links</th></tr></thead>
         <tbody id="runs"></tbody>
       </table>
     </div>
@@ -262,6 +262,7 @@ const commitUrl = h => h.repo && h.sha ? `https://github.com/${h.repo}/commit/${
     `Latest run <b>${esc(fmtDate(latest.started))}</b>`,
     `xLights <b>${esc(latest.version || latest.ref)}</b>`,
     c ? `<a href="${c}">commit ${esc(latest.sha.slice(0, 9))}</a>` : "",
+    latest.cpu ? `CPU <b>${esc(latest.cpu)}</b>` : "",
     `<a href="${esc(DATA.run_url)}">run log</a>`,
   ].filter(Boolean).join("");
 }
@@ -468,7 +469,7 @@ renderScenarios();
 $("runs").innerHTML = history.slice(-30).reverse().map(h => {
   const c = commitUrl(h);
   const t = h.totals;
-  return `<tr><td>${esc(fmtDate(h.started))}</td><td>${esc(h.version || h.ref)}</td><td class="num">${t.pass}</td><td class="num">${t.fail ? `<b class="s-fail">${t.fail}</b>` : 0}</td><td class="num">${t.xfail}</td><td class="num">${t.skip}</td><td class="num">${secs(t.render_s)}</td><td><a href="${esc(h.run_url)}">run</a>${c ? ` · <a href="${c}">commit</a>` : ""}</td></tr>`;
+  return `<tr><td>${esc(fmtDate(h.started))}</td><td>${esc(h.version || h.ref)}</td><td class="num">${t.pass}</td><td class="num">${t.fail ? `<b class="s-fail">${t.fail}</b>` : 0}</td><td class="num">${t.xfail}</td><td class="num">${t.skip}</td><td class="num">${secs(t.render_s)}</td><td>${esc(h.cpu || "")}</td><td><a href="${esc(h.run_url)}">run</a>${c ? ` · <a href="${c}">commit</a>` : ""}</td></tr>`;
 }).join("");
 </script>
 </body>

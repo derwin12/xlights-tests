@@ -34,7 +34,7 @@ def main():
         (site / "coverage" / "gcovr-summary.json").unlink(missing_ok=True)
     entry = {
         "started": res["started"], "version": res["version"], "sha": res["sha"], "repo": res["repo"],
-        "ref": res["ref"], "run_url": run_url, "totals": res["totals"],
+        "ref": res["ref"], "cpu": res.get("cpu", ""), "run_url": run_url, "totals": res["totals"],
         "scenarios": {s["name"]: [s["status"], s["render_s"]] for s in res["scenarios"]},
     }
     if coverage:

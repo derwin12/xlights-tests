@@ -63,6 +63,18 @@ def compare(args, wrap, a, b, with_models):
     return False, "\n".join(lines[start:start + 25]).strip() or f"fseqcmp exit {code}"
 
 
+def cpu_model():
+    """The runner's CPU. Baselines can depend on it (vendor-specific float
+    rounding), so every result records it."""
+    try:
+        for line in Path("/proc/cpuinfo").read_text().splitlines():
+            if line.startswith("model name"):
+                return line.split(":", 1)[1].strip()
+    except OSError:
+        pass
+    return ""
+
+
 def tail(text, n=30):
     return "\n".join(text.strip().splitlines()[-n:])
 
@@ -143,6 +155,7 @@ def main():
         "sha": os.environ.get("XL_SHA", ""),
         "repo": os.environ.get("XL_REPO", ""),
         "ref": os.environ.get("XL_REF", ""),
+        "cpu": cpu_model(),
         "channels": spec.get("channels"),
         "totals": totals,
         "scenarios": results,
