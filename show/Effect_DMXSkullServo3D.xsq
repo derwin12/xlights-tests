@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>6.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect>E_SLIDER_DMX1=9,E_SLIDER_DMX10=90,E_SLIDER_DMX11=99,E_SLIDER_DMX12=108,E_SLIDER_DMX13=117,E_SLIDER_DMX14=126,E_SLIDER_DMX15=135,E_SLIDER_DMX16=144,E_SLIDER_DMX17=153,E_SLIDER_DMX18=162,E_SLIDER_DMX19=171,E_SLIDER_DMX2=18,E_SLIDER_DMX20=180,E_SLIDER_DMX21=189,E_SLIDER_DMX22=198,E_SLIDER_DMX23=207,E_SLIDER_DMX24=216,E_SLIDER_DMX25=225,E_SLIDER_DMX26=234,E_SLIDER_DMX3=27,E_SLIDER_DMX4=36,E_SLIDER_DMX5=45,E_SLIDER_DMX6=54,E_SLIDER_DMX7=63,E_SLIDER_DMX8=72,E_SLIDER_DMX9=81</Effect>
+    <Effect>E_VALUECURVE_DMX1=Active=TRUE|Id=ID_VALUECURVE_DMX1|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX10=Active=TRUE|Id=ID_VALUECURVE_DMX10|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX11=Active=TRUE|Id=ID_VALUECURVE_DMX11|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX12=Active=TRUE|Id=ID_VALUECURVE_DMX12|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX13=Active=TRUE|Id=ID_VALUECURVE_DMX13|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX14=Active=TRUE|Id=ID_VALUECURVE_DMX14|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX15=Active=TRUE|Id=ID_VALUECURVE_DMX15|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX16=Active=TRUE|Id=ID_VALUECURVE_DMX16|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX17=Active=TRUE|Id=ID_VALUECURVE_DMX17|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX18=Active=TRUE|Id=ID_VALUECURVE_DMX18|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX19=Active=TRUE|Id=ID_VALUECURVE_DMX19|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX2=Active=TRUE|Id=ID_VALUECURVE_DMX2|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX20=Active=TRUE|Id=ID_VALUECURVE_DMX20|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX21=Active=TRUE|Id=ID_VALUECURVE_DMX21|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX22=Active=TRUE|Id=ID_VALUECURVE_DMX22|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX23=Active=TRUE|Id=ID_VALUECURVE_DMX23|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX24=Active=TRUE|Id=ID_VALUECURVE_DMX24|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX25=Active=TRUE|Id=ID_VALUECURVE_DMX25|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX26=Active=TRUE|Id=ID_VALUECURVE_DMX26|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX3=Active=TRUE|Id=ID_VALUECURVE_DMX3|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX4=Active=TRUE|Id=ID_VALUECURVE_DMX4|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX5=Active=TRUE|Id=ID_VALUECURVE_DMX5|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX6=Active=TRUE|Id=ID_VALUECURVE_DMX6|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX7=Active=TRUE|Id=ID_VALUECURVE_DMX7|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX8=Active=TRUE|Id=ID_VALUECURVE_DMX8|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|,E_VALUECURVE_DMX9=Active=TRUE|Id=ID_VALUECURVE_DMX9|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|</Effect>
+    <Effect></Effect>
+    <Effect>E_CHOICE_Channel=Servo1,E_TEXTCTRL_EndValue=90,E_TEXTCTRL_Servo=10</Effect>
+    <Effect>E_CHOICE_Channel=Servo2,E_TEXTCTRL_EndValue=20,E_TEXTCTRL_Servo=80</Effect>
+    <Effect>E_CHECKBOX_16bit=0,E_CHOICE_Channel=Servo1,E_TEXTCTRL_EndValue=50,E_TEXTCTRL_Servo=50</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
+    <Element collapsed="false" type="model" name="Skull" visible="true" />
+    <Element collapsed="false" type="model" name="Servo3D" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Skull">
+      <EffectLayer>
+        <Effect ref="0" name="DMX" startTime="0" endTime="2000" palette="0" />
+        <Effect ref="1" name="DMX" startTime="2000" endTime="4000" palette="0" />
+        <Effect ref="2" name="On" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="2" name="Color Wash" startTime="5000" endTime="6000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Servo3D">
+      <EffectLayer>
+        <Effect ref="3" name="Servo" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="4" name="Servo" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="5" name="Servo" startTime="2000" endTime="3000" palette="0" />
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

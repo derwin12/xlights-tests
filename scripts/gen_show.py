@@ -38,10 +38,16 @@ IMAGE_FILE = "media/gradient.png"
 # A 3 s synthetic test pattern (ffmpeg testsrc2, 64x36, H.264), committed
 # rather than generated because the CI container has no ffmpeg binary.
 VIDEO_FILE = "media/testsrc.mp4"
+SHADER_FILE = "media/pattern.fs"
+# Glediator raw frames are sized to the buffer they play on: the Matrix's
+# 32x16. The CSV form is size-independent, so it plays on every model.
+GLED_FILE = "media/pattern.gled"
+GLED_CSV_FILE = "media/pattern.csv"
+GLED_SIZE = (32, 16)
+GLED_FRAMES = 20
 
-# Effects the generic metadata walk can't drive. Faces, State, Pictures,
-# VU Meter, Music, Duplicate, Video and the DMX effects get hand-written
-# scenarios further down; the rest need MIDI, shaders or sketch files.
+# Effects the generic metadata walk can't drive; each gets a hand-written
+# scenario further down.
 SKIP_EFFECTS = {
     "DMX", "Duplicate", "Faces", "Glediator", "Guitar", "Moving Head",
     "Music", "Piano", "Pictures", "Servo", "Shader", "Sketch", "State",
@@ -194,7 +200,78 @@ def extra_models():
     # A rotated matrix for the Per Preview buffer.
     m.append(("V_Rotated", "Matrix", dict(NumStrings=8, NodesPerString=16, StrandsPerString=1, Vertical="false",
                                           NoZig="false", AlternateNodes="false", RotateZ=30, ScaleX=0.8, ScaleY=0.5), 128, 450, y))
+    y += 60
+
+    # Model types and layout options the core set doesn't use.
+    tree = dict(NumStrings=8, NodesPerString=30, StrandsPerString=1, TreeDegrees=360, TreeRotation=3,
+                TreeSpiralRotations=0, TreeBottomTopRatio=6, TreePerspective=0.2, StrandDir="Vertical",
+                ScaleX=0.4, ScaleY=0.5)
+    m.append(("T_Flat", "Tree", dict(tree, TreeType=1, TreeDegrees=180), 240, -450, y))
+    m.append(("T_Ribbon", "Tree", dict(tree, TreeType=2), 240, -300, y))
+    m.append(("T_Spiral", "Tree", dict(tree, TreeType=0, TreeSpiralRotations=2.5), 240, -150, y))
+    m.append(("M_Vert", "Matrix", dict(NumStrings=8, NodesPerString=20, StrandsPerString=2, Vertical="true",
+                                       NoZig="false", AlternateNodes="true", ScaleX=0.5, ScaleY=0.4), 160, 0, y))
+    m.append(("M_NoZig", "Matrix", dict(NumStrings=10, NodesPerString=12, StrandsPerString=1, Vertical="false",
+                                        NoZig="true", AlternateNodes="false", StartSide="T", Dir="R",
+                                        ScaleX=0.5, ScaleY=0.4), 120, 150, y))
+    # Two layers, two strings.
+    pts = [(r, c, l) for l in (0, 1) for r in range(4) for c in range(4) if (r in (0, 3) or c in (0, 3))]
+    compressed = ";".join(f"{i + 1},{r},{c},{l}" for i, (r, c, l) in enumerate(pts))
+    m.append(("C_3D", "Custom", dict(CustomWidth=4, CustomHeight=4, Depth=2, CustomStrings=2,
+                                     CustomModelCompressed=compressed, ScaleX=0.3, ScaleY=0.3), len(pts), 300, y))
+    m.append(("Star2", "Star", dict(NumStrings=1, NodesPerString=48, StarPoints=6, LayerSizes="30,18",
+                                    starRatio=2.0, StarStartLocation="Bottom Ctr-CCW", ScaleX=0.4, ScaleY=0.4), 48, 450, y))
+    m.append(("Circle2", "Circle", dict(NumStrings=1, NodesPerString=60, LayerSizes="30,20,10",
+                                        centerPercent=40, InsideOut="1", ScaleX=0.4, ScaleY=0.4), 60, 600, y))
+    y += 120
+    m.append(("Window2", "Window Frame", dict(TopNodes=20, SideNodes=12, BottomNodes=20,
+                                               Rotation="Counter Clockwise", ScaleX=0.8, ScaleY=0.6), 64, -450, y))
+    m.append(("Spinner2", "Spinner", dict(NumStrings=1, NodesPerArm=10, ArmsPerString=6, Hollow=10, StartAngle=45,
+                                          Arc=180, ZigZag="true", Alternate="true", ScaleX=0.4, ScaleY=0.4), 60, -300, y))
+    m.append(("Icicles2", "Icicles", dict(NumStrings=2, NodesPerString=40, DropPattern="2,6", AlternateNodes="true",
+                                          X2=300, Y2=0, Z2=0), 80, -150, y))
+    m.append(("Canes2", "Candy Canes", dict(NumCanes=3, NodesPerCane=18, LightsPerNode=1, CandyCaneHeight=0.6,
+                                            CandyCaneReverse="true", CandyCaneSticks="true", AlternateNodes="true",
+                                            X2=120, Y2=0, Z2=0, Height=1.0), 54, 150, y))
+    m.append(("MultiPt", "MultiPoint", dict(NumPoints=6, MultiStrings=1, ModelHeight=1.0,
+                                            PointData=",".join(f"{x:.6f},{yy:.6f},0.000000" for x, yy in
+                                                               [(0, 0), (0.2, 0.6), (0.4, 0.1), (0.6, 0.9), (0.8, 0.3), (1, 0.7)]),
+                                            ScaleX=200, ScaleY=100, ScaleZ=100), 6, 300, y))
+    m.append(("ChanBlock", "Channel Block", dict(NumChannels=8, X2=100, Y2=0, Z2=0, **{
+        f"ChannelProperties.ChannelColor{i + 1}": c for i, c in enumerate(
+            ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "orange"])}), 8, 450, y))
+    m.append(("ImageM", "Image", dict(Image=IMAGE_FILE, WhiteAsAlpha="False", OffBrightness=60,
+                                      StringType="Single Color Intensity", _channels=1), 1, 600, y))
+    m.append(("LabelM", "Label", dict(LabelText="xlights-tests", LabelFontSize=12, LabelTextColor="#FFFF00"), 1, 650, y))
+    y += 120
+
+    # A matrix carrying every submodel form: sub-buffer, Keep XY and Stacked
+    # Strands range styles, reversed ranges and a node list.
+    m.append(("SM_Matrix", "Matrix", dict(NumStrings=16, NodesPerString=16, StrandsPerString=1, Vertical="false",
+                                          NoZig="false", AlternateNodes="false", ScaleX=0.6, ScaleY=0.6, _children=[
+        '<subModel name="Window" layout="horizontal" type="subbuffer" bufferstyle="Default" subBuffer="20x20x80x70" />',
+        '<subModel name="XY" layout="horizontal" type="ranges" bufferstyle="Keep XY" '
+        'line0="1-16" line1="40-48" line2="120-136" line3="250-256" />',
+        '<subModel name="Stacked" layout="horizontal" type="ranges" bufferstyle="Stacked Strands" '
+        'line0="1-16" line1="33-48" line2="65-80" />',
+        '<subModel name="Reversed" layout="vertical" type="ranges" bufferstyle="Default" '
+        'line0="32-17" line1="64-49" line2="96-81" />',
+        '<subModel name="Dots" layout="horizontal" type="ranges" bufferstyle="Default" '
+        'line0="1,5,9,13,100,104,108,112" line1="200,,210,,220" />',
+    ]), 256, -300, y))
+
+    # DMX fixtures with their own servo channel layouts.
+    m.append(("Skull", "DmxSkull", dmx_attrs(26, DmxColorType=0, DmxRedChannel=16, DmxGreenChannel=17, DmxBlueChannel=18,
+                                              DmxEyeBrtChannel=15), 0, 0, y))
+    m.append(("Servo3D", "DmxServo3d", dmx_attrs(4, NumServos=2, NumStatic=1, NumMotion=2, Bits16=1, _children=[
+        '<Servo1 Channel="1" MinLimit="1" MaxLimit="65535" RangeOfMotion="180.000000" ServoStyle="Rotate X" />',
+        '<Servo2 Channel="3" MinLimit="1" MaxLimit="65535" RangeOfMotion="90.000000" ServoStyle="Rotate Y" />']), 0, 150, y))
     return m
+
+
+NEW_TYPES = ["T_Flat", "T_Ribbon", "T_Spiral", "M_Vert", "M_NoZig", "C_3D", "Star2", "Circle2", "Window2",
+             "Spinner2", "Icicles2", "Canes2", "MultiPt", "ChanBlock", "ImageM", "LabelM"]
+NEW_TYPES_GROUP = "New Types"
 
 
 VARIANTS = ["V_GRB", "V_BRG", "V_RGBWW"] + [f"V_RGBW{i}" for i in range(5)] + [
@@ -273,6 +350,8 @@ def write_rgbeffects(path, model_list, group_names):
                  f'models="Matrix/Top,Tree/Bottom,Star,Circle,Spinner" />')
     lines.append(f'    <modelGroup name={quoteattr(MH_GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
                  f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" models={quoteattr(",".join(MOVING_HEADS))} />')
+    lines.append(f'    <modelGroup name={quoteattr(NEW_TYPES_GROUP)} DisplayAs="ModelGroup" DefaultCamera="2D" '
+                 f'GridSize="400" layout="minimalGrid" LayoutGroup="Default" models={quoteattr(",".join(NEW_TYPES))} />')
     lines.append("  </modelGroups>")
     lines.append("  <view_objects />")
     lines.append("  <layoutGroups />")
@@ -724,6 +803,160 @@ def dmx_scenarios():
     return out
 
 
+def sketch_def(*paths):
+    """Sketch paths are '|'-separated, their segments ';'-separated; the commas
+    inside points are stored as &comma; like any other setting value."""
+    return "|".join(paths).replace(",", "&comma;")
+
+
+def music_scenarios(core_names):
+    """Piano and Guitar read notes from timing-track labels; Sketch draws
+    paths; Glediator plays raw and CSV frame files; Shader runs an ISF file."""
+    out = {}
+
+    # Notes as names, sharps/flats, MIDI numbers, chords and rests.
+    note_labels = ["C4", "E4 G4", "C#4", "Bb3", "60,64,67", "F4:A4:C5", "", "G3 B3 D4 F4", "C5", "A4"]
+    notes = [(lbl, a, a + 250) for a, lbl in zip(range(0, 60000, 250), note_labels * 24) if lbl]
+
+    s = Sequence()
+    base = {"E_CHOICE_Piano_MIDITrack_APPLYLAST": "Notes"}
+    segs = [{}, {"E_CHOICE_Piano_Type": "Bars"}, {"E_CHECKBOX_Piano_ShowSharps": "0"},
+            {"E_CHECKBOX_Piano_FadeNotes": "1"}, {"E_CHOICE_Piano_Type": "Bars", "E_CHECKBOX_Piano_FadeNotes": "1"},
+            {"E_SPINCTRL_Piano_StartMIDI": "48", "E_SPINCTRL_Piano_EndMIDI": "84"},
+            {"E_SPINCTRL_Piano_StartMIDI": "55", "E_SPINCTRL_Piano_EndMIDI": "65"},
+            {"E_SLIDER_Piano_Scale": "60", "E_SLIDER_Piano_XOffset": "20"},
+            {"E_SLIDER_Piano_XOffset": "-30"}]
+    t = 0
+    for st in segs:
+        for m in core_names:
+            s.add(m, 0, "Piano", dict(base, **st), t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    s.add_timing("Notes", [n for n in notes if n[2] <= t])
+    out["Effect_Piano"] = s
+
+    # Guitar: chord names, single notes, MIDI numbers and string/fret pairs.
+    chord_labels = ["CA", "CG", "CE", "CD", "E2", "A2 D3", "S1P3 S2P5", "40", "S6P0 S5P2 S4P2", "CC"]
+    chords = [(lbl, a, a + 400) for a, lbl in zip(range(0, 60000, 400), chord_labels * 15)]
+    s = Sequence()
+    base = {"E_CHOICE_Guitar_MIDITrack_APPLYLAST": "Chords"}
+    segs = [{"E_CHOICE_Guitar_Type": ty} for ty in ("Guitar", "Bass Guitar", "Banjo", "Violin")]
+    segs += [{"E_CHOICE_StringAppearance": "Wave"},
+             {"E_CHOICE_StringAppearance": "Wave", "E_TEXTCTRL_StringWaveFactor": "2.5", "E_TEXTCTRL_BaseWaveFactor": "3.0",
+              "E_CHECKBOX_VaryWaveLengthOnFret": "0"},
+             {"E_CHECKBOX_ShowStrings": "1", "E_CHECKBOX_Fade": "1"},
+             {"E_CHECKBOX_Collapse": "1", "E_SLIDER_MaxFrets": "8"}]
+    t = 0
+    for st in segs:
+        for m in core_names:
+            s.add(m, 0, "Guitar", dict(base, **st), t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    s.add_timing("Chords", [c for c in chords if c[2] <= t])
+    out["Effect_Guitar"] = s
+
+    # Sketch: lines, quadratic and cubic curves, a closed path and several
+    # paths, at different draw percentages, thicknesses and motion.
+    zigzag = sketch_def("0.1,0.1;L0.3,0.9;L0.5,0.1;L0.7,0.9;L0.9,0.1")
+    curves = sketch_def("0.1,0.5;Q0.3,0.0,0.5,0.5;C0.6,1.0,0.8,0.0,0.9,0.5")
+    shapes = sketch_def("0.2,0.2;L0.8,0.2;L0.8,0.8;L0.2,0.8;c", "0.5,0.3;Q0.7,0.5,0.5,0.7;Q0.3,0.5,0.5,0.3",
+                        "0.0,1.0;C0.3,0.6,0.7,0.4,1.0,0.0")
+    segs = [{"E_TEXTCTRL_SketchDef": d} for d in (zigzag, curves, shapes)]
+    segs += [{"E_TEXTCTRL_SketchDef": shapes, "E_SLIDER_DrawPercentage": "100", "E_SLIDER_Thickness": "3"},
+             {"E_TEXTCTRL_SketchDef": shapes, "E_CHECKBOX_MotionEnabled": "1", "E_SLIDER_MotionPercentage": "30"},
+             {"E_TEXTCTRL_SketchDef": curves, "E_VALUECURVE_DrawPercentage":
+              "Active=TRUE|Id=ID_VALUECURVE_DrawPercentage|Type=Ramp|Min=0.00|Max=100.00|P1=0.00|P2=100.00|RV=TRUE|"},
+             {"E_TEXTCTRL_SketchDef": zigzag, "E_FILEPICKER_SketchBackground": IMAGE_FILE, "E_SLIDER_SketchBackgroundOpacity": "80"}]
+    s = Sequence()
+    place_segments(s, core_names, "Sketch", segs)
+    out["Effect_Sketch"] = s
+
+    # Glediator: raw frames on the Matrix (they're sized to its buffer), CSV
+    # frames everywhere, through each duration treatment.
+    s = Sequence()
+    t = 0
+    for treat in ("Normal", "Loop", "Slow/Accelerate"):
+        s.add("Matrix", 0, "Glediator", {"E_FILEPICKERCTRL_Glediator_Filename": GLED_FILE,
+                                         "E_CHOICE_Glediator_DurationTreatment": treat}, t, t + 2 * SEGMENT_MS)
+        for m in core_names:
+            if m != "Matrix":
+                s.add(m, 0, "Glediator", {"E_FILEPICKERCTRL_Glediator_Filename": GLED_CSV_FILE,
+                                          "E_CHOICE_Glediator_DurationTreatment": treat}, t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    out["Effect_Glediator"] = s
+
+    # Shader: the test ISF file's inputs (float, bool, long choice, point2D,
+    # colour from the palette, event from a timing track), speed, offset,
+    # zoom and lead-in.
+    base = {"E_0FILEPICKERCTRL_IFS": SHADER_FILE, "E_CHOICE_SHADERXYZZY_pulse": "Beats"}
+    segs = [{}]
+    segs += [{"E_CHOICE_SHADERXYZZY_mode": mode} for mode in ("Stripes", "Checks")]
+    segs += [{"E_SLIDER_SHADERXYZZY_scale": "1200"}, {"E_CHECKBOX_SHADERXYZZY_invert": "1"},
+             {"E_SLIDER_SHADERXYZZY_centerX": "20", "E_SLIDER_SHADERXYZZY_centerY": "80"},
+             {"E_VALUECURVE_SHADERXYZZY_scale":
+              "Active=TRUE|Id=ID_VALUECURVE_SHADERXYZZY_scale|Type=Ramp|Min=100.00|Max=2000.00|P1=0.00|P2=100.00|RV=TRUE|"},
+             {"E_SLIDER_Shader_Speed": "300"}, {"E_SLIDER_Shader_Offset_X": "40", "E_SLIDER_Shader_Offset_Y": "-30"},
+             {"E_SLIDER_Shader_Zoom": "30"}, {"E_TEXTCTRL_Shader_LeadIn": "40"}]
+    s = Sequence()
+    place_segments(s, core_names, "Shader", segs, base=base)
+    s.add_timing("Beats", beat_marks(s.end_ms))
+    out["Effect_Shader"] = s
+    return out
+
+
+def model_type_scenarios():
+    out = {}
+
+    # The extra model types and layouts through a spread of buffer-shaped
+    # effects, then the group through its buffer styles.
+    s = Sequence()
+    effects = [("On", {}), ("Color Wash", {}), ("Bars", {"E_CHOICE_Bars_Direction": "Left"}), ("Bars", {}),
+               ("Spirals", {}), ("Butterfly", {}), ("Pinwheel", {}), ("Plasma", {}), ("Marquee", {}),
+               ("SingleStrand", {}), ("Circles", {}), ("Bars", {"B_CHOICE_BufferStyle": "Per Preview"}),
+               ("Spirals", {"B_CHOICE_BufferStyle": "Single Line"}), ("Bars", {"B_CHOICE_BufferStyle": "Horizontal Per Strand"}),
+               ("Bars", {"B_CHOICE_BufferStyle": "Vertical Per Strand"}), ("Bars", {"B_CHOICE_BufferTransform": "Rotate CW 90"})]
+    t = 0
+    for effect, st in effects:
+        for m in NEW_TYPES:
+            s.add(m, 0, effect, st, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    for st in ("Default", "Per Preview", "Horizontal Per Model", "Vertical Per Model", "Single Line",
+               "Overlay - Scaled", "Per Model Default", "Per Model Per Preview", "Per Model Default Deep"):
+        s.add(NEW_TYPES_GROUP, 0, "Spirals", {"B_CHOICE_BufferStyle": st}, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    out["Feature_ModelTypes"] = s
+
+    # Every submodel form on its own matrix.
+    s = Sequence()
+    t = 0
+    for sub in ("Window", "XY", "Stacked", "Reversed", "Dots"):
+        for effect, st in (("Bars", {"E_CHOICE_Bars_Direction": "Left"}), ("Spirals", {}),
+                           ("Bars", {"B_CHOICE_BufferStyle": "Per Preview"})):
+            s.add(f"SM_Matrix/{sub}", 0, effect, st, t, t + SEGMENT_MS)
+            t += SEGMENT_MS
+    s.add("SM_Matrix", 0, "Color Wash", {}, 0, t)
+    out["Feature_SubModelTypes"] = s
+
+    # The skull's channels through DMX levels and ramps, its colour through
+    # colour effects; the 3D servo model's servos through Servo.
+    ramp = lambda vid: f"Active=TRUE|Id=ID_VALUECURVE_{vid}|Type=Ramp|Min=0.00|Max=255.00|P1=0.00|P2=100.00|RV=TRUE|"
+    s = Sequence()
+    t = 0
+    for seg in ({f"E_SLIDER_DMX{c}": str(9 * c % 256) for c in range(1, 27)},
+                {f"E_VALUECURVE_DMX{c}": ramp(f"DMX{c}") for c in range(1, 27)}):
+        s.add("Skull", 0, "DMX", seg, t, t + 2 * SEGMENT_MS)
+        t += 2 * SEGMENT_MS
+    for effect in ("On", "Color Wash"):
+        s.add("Skull", 0, effect, {}, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    t = 0
+    for seg in ({"E_CHOICE_Channel": "Servo1", "E_TEXTCTRL_Servo": "10", "E_TEXTCTRL_EndValue": "90"},
+                {"E_CHOICE_Channel": "Servo2", "E_TEXTCTRL_Servo": "80", "E_TEXTCTRL_EndValue": "20"},
+                {"E_CHOICE_Channel": "Servo1", "E_TEXTCTRL_Servo": "50", "E_TEXTCTRL_EndValue": "50", "E_CHECKBOX_16bit": "0"}):
+        s.add("Servo3D", 0, "Servo", seg, t, t + SEGMENT_MS)
+        t += SEGMENT_MS
+    out["Effect_DMXSkullServo3D"] = s
+    return out
+
+
 def wled_names(src, table):
     """A JSON_*_names table from FX.h, in its original (WLED) order."""
     text = (src / "src-core" / "effects" / "FX.h").read_text(encoding="utf-8", errors="replace")
@@ -875,6 +1108,66 @@ def write_png(path, w=32, h=16):
     path.write_bytes(png)
 
 
+SHADER_SOURCE = """/*{
+    "DESCRIPTION": "xlights-tests pattern: rings, stripes or checks",
+    "CREDIT": "xlights-tests",
+    "ISFVSN": "2",
+    "CATEGORIES": ["Generator"],
+    "INPUTS": [
+        {"NAME": "scale", "TYPE": "float", "DEFAULT": 4.0, "MIN": 1.0, "MAX": 20.0},
+        {"NAME": "invert", "TYPE": "bool", "DEFAULT": false},
+        {"NAME": "mode", "TYPE": "long", "VALUES": [0, 1, 2], "LABELS": ["Rings", "Stripes", "Checks"], "DEFAULT": 0},
+        {"NAME": "center", "TYPE": "point2D", "DEFAULT": [0.5, 0.5], "MIN": [0.0, 0.0], "MAX": [1.0, 1.0]},
+        {"NAME": "tint", "TYPE": "color", "DEFAULT": [1.0, 0.5, 0.0, 1.0]},
+        {"NAME": "pulse", "TYPE": "event"}
+    ]
+}*/
+
+void main() {
+    vec2 uv = isf_FragNormCoord;
+    float v;
+    if (mode == 0) {
+        v = 0.5 + 0.5 * sin(distance(uv, center) * scale * 6.2832 - TIME * 3.0);
+    } else if (mode == 1) {
+        v = 0.5 + 0.5 * sin(uv.x * scale * 6.2832 + TIME * 2.0);
+    } else {
+        v = mod(floor(uv.x * scale) + floor(uv.y * scale + TIME), 2.0);
+    }
+    if (invert) {
+        v = 1.0 - v;
+    }
+    if (pulse) {
+        v = 1.0;
+    }
+    gl_FragColor = vec4(tint.rgb * v, 1.0);
+}
+"""
+
+
+def write_shader(path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(SHADER_SOURCE, encoding="utf-8", newline="\n")
+
+
+def gled_frame(f, w, h):
+    """A diagonal colour sweep that moves one pixel per frame."""
+    px = []
+    for y in range(h):
+        for x in range(w):
+            k = (x + y + f) % 12
+            px += [255 if k < 4 else 0, 255 if 4 <= k < 8 else 0, 255 if k >= 8 else 0]
+    return px
+
+
+def write_glediator(raw_path, csv_path):
+    w, h = GLED_SIZE
+    raw_path.parent.mkdir(parents=True, exist_ok=True)
+    raw_path.write_bytes(b"".join(bytes(gled_frame(f, w, h)) for f in range(GLED_FRAMES)))
+    # CSV frames hold one grey level per pixel, not RGB triples.
+    csv_path.write_text("".join(",".join(str((x + y + f) * 16 % 256) for y in range(h) for x in range(w)) + "\n"
+                                for f in range(GLED_FRAMES)), encoding="utf-8", newline="\n")
+
+
 def main():
     if len(sys.argv) != 3:
         sys.exit(__doc__)
@@ -891,6 +1184,8 @@ def main():
     elements = names + [GROUP, MIXED_GROUP]
     write_wav(out / AUDIO_FILE)
     write_png(out / IMAGE_FILE)
+    write_shader(out / SHADER_FILE)
+    write_glediator(out / GLED_FILE, out / GLED_CSV_FILE)
 
     scenarios = {}
     for f in sorted((src / "resources" / "effectmetadata").glob("*.json")):
@@ -905,6 +1200,8 @@ def main():
         scenarios["Effect_" + effect.replace(" ", "")] = seq
     scenarios.update(input_scenarios(src, names))
     scenarios.update(dmx_scenarios())
+    scenarios.update(music_scenarios(names))
+    scenarios.update(model_type_scenarios())
     scenarios.update(variant_scenarios(src, names))
     scenarios.update(feature_sequences(names))
 
