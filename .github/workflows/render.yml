@@ -212,9 +212,18 @@ jobs:
 
   # Commits the first render of every scenario as its baseline. Run it by hand
   # after a change that is meant to alter rendering, or after adding scenarios.
+  # Baselines are kept per CPU vendor (baselines/amd, baselines/intel): AMD
+  # and Intel runners render a few channels an ulp apart. A rebaseline run
+  # replaces its own vendor's set; any run of master also fills in the
+  # baselines its vendor doesn't have yet, so the other set catches up on the
+  # first run that lands on that vendor.
   rebaseline:
     needs: render
-    if: always() && !cancelled() && github.event.inputs.rebaseline == 'true' && needs.render.result != 'skipped'
+    if: >-
+      always() && !cancelled() && needs.render.result != 'skipped' && github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' ||
+       (github.event_name == 'workflow_dispatch' && (github.event.inputs.rebaseline == 'true' ||
+        (github.event.inputs.xlights_ref == 'master' && github.event.inputs.xlights_repo == 'xLightsSequencer/xLights'))))
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -226,7 +235,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: renders
-          path: baselines
+          path: renders
 
       - name: Download the results
         uses: actions/download-artifact@v8
@@ -236,15 +245,20 @@ jobs:
 
       - name: Commit the baselines
         run: |
+          mode=--missing
+          [ "${{ github.event.inputs.rebaseline }}" = "true" ] && mode=--all
+          python3 scripts/update_baselines.py results/results.json renders baselines $mode
           version=$(python3 -c "import json;d=json.load(open('results/results.json'));print(d['version'] or d['sha'][:9])")
+          set=$(python3 -c "import json;print(json.load(open('results/results.json'))['baseline_set'])")
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add baselines
+          git add -A baselines
           if git diff --cached --quiet; then
             echo "Baselines unchanged."
           else
-            git commit -m "Rebaseline against xLights $version" -m "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            git push
+            if [ $mode = --all ]; then msg="Rebaseline $set against xLights $version"; else msg="Add missing $set baselines from xLights $version"; fi
+            git commit -m "$msg" -m "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            git pull --rebase && git push
           fi
 
   # The dashboard on GitHub Pages. history.json is carried over from the live

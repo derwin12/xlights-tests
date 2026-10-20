@@ -104,8 +104,11 @@ On Linux, run it under a virtual display (`xvfb-run -a`, or start `Xvfb` and set
 
 Baselines are rendered on the CI runner. Don't commit renders from another platform: floating-point results differ between compilers and CPUs.
 
+GitHub's Linux runners are either AMD EPYC or Intel Xeon, and the two render a handful of channels an ulp apart (Butterfly, layer blending, palette curves, and anything with a threshold downstream, like VU Meter and sparkles). So there are two baseline sets, `baselines/amd/` and `baselines/intel/`. Each run compares against the set for the CPU it got, and the dashboard shows which CPU that was.
+
 1. Open **Actions → Render scenarios → Run workflow** and tick **rebaseline**.
-2. The run commits its renders to `baselines/`.
+2. The run commits its renders to its own vendor's set. For each scenario whose render changed, it deletes the other set's copy, because that copy came from the old render.
+3. The other set fills itself in. Any run of xLights master, including the nightly, commits a render as the baseline when its vendor's set has none for that scenario. Until then, the scenario shows as skipped on that vendor.
 
 Do this after an xLights change that is meant to alter rendering, after changing `gen_show.py`, or after adding a scenario.
 

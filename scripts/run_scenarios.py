@@ -75,6 +75,17 @@ def cpu_model():
     return ""
 
 
+def baseline_set(cpu):
+    """Renders differ by an ulp or so between AMD and Intel runners, so each
+    vendor has its own baselines under baselines/<set>/."""
+    cpu = cpu.upper()
+    if "AMD" in cpu:
+        return "amd"
+    if "INTEL" in cpu:
+        return "intel"
+    return "other"
+
+
 def tail(text, n=30):
     return "\n".join(text.strip().splitlines()[-n:])
 
@@ -90,8 +101,11 @@ def main():
     args = ap.parse_args()
     args.show = args.show.resolve()
     args.out = args.out.resolve()
-    args.baselines = args.baselines.resolve()
+    cpu = cpu_model()
+    bset = baseline_set(cpu)
+    args.baselines = (args.baselines / bset).resolve()
     wrap = shlex.split(args.wrap)
+    print(f"CPU: {cpu or 'unknown'}; comparing against baselines/{bset}/", flush=True)
 
     spec = json.loads((args.show / "scenarios.json").read_text())
     names = [n for n in spec["scenarios"] if args.k in n]
@@ -131,12 +145,12 @@ def main():
                     problems.append("differs from baseline:\n" + diff)
             else:
                 r["baseline"] = "missing"
+                r["detail"] = f"no {bset} baseline yet"
 
         if problems:
             r["status"] = "xfail" if expected else "fail"
         elif r["baseline"] == "missing":
             r["status"] = "skip"
-            r["detail"] = "no baseline yet"
         else:
             r["status"] = "pass"
         if problems:
@@ -155,7 +169,8 @@ def main():
         "sha": os.environ.get("XL_SHA", ""),
         "repo": os.environ.get("XL_REPO", ""),
         "ref": os.environ.get("XL_REF", ""),
-        "cpu": cpu_model(),
+        "cpu": cpu,
+        "baseline_set": bset,
         "channels": spec.get("channels"),
         "totals": totals,
         "scenarios": results,
