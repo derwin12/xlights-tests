@@ -1,5 +1,5 @@
 {
-  "channels": 8241,
+  "channels": 13255,
   "frame_ms": 50,
   "scenarios": {
     "Effect_Adjust": {
@@ -26,6 +26,9 @@
     "Effect_DMX": {
       "expected_failure": null
     },
+    "Effect_DMXSkullServo3D": {
+      "expected_failure": null
+    },
     "Effect_Duplicate": {
       "expected_failure": null
     },
@@ -48,6 +51,12 @@
       "expected_failure": null
     },
     "Effect_Garlands": {
+      "expected_failure": null
+    },
+    "Effect_Glediator": {
+      "expected_failure": null
+    },
+    "Effect_Guitar": {
       "expected_failure": null
     },
     "Effect_Kaleidoscope": {
@@ -86,6 +95,9 @@
     "Effect_On": {
       "expected_failure": null
     },
+    "Effect_Piano": {
+      "expected_failure": null
+    },
     "Effect_Pictures": {
       "expected_failure": null
     },
@@ -99,6 +111,9 @@
       "expected_failure": null
     },
     "Effect_Servo": {
+      "expected_failure": null
+    },
+    "Effect_Shader": {
       "expected_failure": null
     },
     "Effect_Shape": {
@@ -118,6 +133,9 @@
     },
     "Effect_SingleStrandFX_Phased": {
       "expected_failure": "WS2812FX::phased_base keeps its phase in a function-level static shared by every model and render thread (FX.cpp), so output depends on thread order"
+    },
+    "Effect_Sketch": {
+      "expected_failure": null
     },
     "Effect_Snowflakes": {
       "expected_failure": null
@@ -179,10 +197,16 @@
     "Feature_ModelOutput": {
       "expected_failure": null
     },
+    "Feature_ModelTypes": {
+      "expected_failure": null
+    },
     "Feature_PaletteCurves": {
       "expected_failure": null
     },
     "Feature_Sparkles": {
+      "expected_failure": null
+    },
+    "Feature_SubModelTypes": {
       "expected_failure": null
     },
     "Feature_SubModels": {

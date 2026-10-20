@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsequence BaseChannel="0" ChanCtrlBasic="0" ChanCtrlColor="0" FixedPointTiming="1" ModelBlending="true">
+  <head>
+    <version>2026.1</version>
+    <author>xlights-tests</author>
+    <sequenceTiming>50 ms</sequenceTiming>
+    <sequenceType>Animation</sequenceType>
+    <mediaFile></mediaFile>
+    <sequenceDuration>9.500</sequenceDuration>
+  </head>
+  <ColorPalettes>
+    <ColorPalette>C_BUTTON_Palette1=#FF0000,C_BUTTON_Palette2=#00FF00,C_BUTTON_Palette3=#0000FF,C_BUTTON_Palette4=#FFFF00,C_BUTTON_Palette5=#FFFFFF,C_BUTTON_Palette6=#000000,C_BUTTON_Palette7=#00FFFF,C_BUTTON_Palette8=#FF00FF,C_CHECKBOX_Palette1=1,C_CHECKBOX_Palette2=1,C_CHECKBOX_Palette3=1</ColorPalette>
+  </ColorPalettes>
+  <EffectDB>
+    <Effect>E_TEXTCTRL_SketchDef=0.1&amp;comma;0.1;L0.3&amp;comma;0.9;L0.5&amp;comma;0.1;L0.7&amp;comma;0.9;L0.9&amp;comma;0.1</Effect>
+    <Effect>E_TEXTCTRL_SketchDef=0.1&amp;comma;0.5;Q0.3&amp;comma;0.0&amp;comma;0.5&amp;comma;0.5;C0.6&amp;comma;1.0&amp;comma;0.8&amp;comma;0.0&amp;comma;0.9&amp;comma;0.5</Effect>
+    <Effect>E_TEXTCTRL_SketchDef=0.2&amp;comma;0.2;L0.8&amp;comma;0.2;L0.8&amp;comma;0.8;L0.2&amp;comma;0.8;c|0.5&amp;comma;0.3;Q0.7&amp;comma;0.5&amp;comma;0.5&amp;comma;0.7;Q0.3&amp;comma;0.5&amp;comma;0.5&amp;comma;0.3|0.0&amp;comma;1.0;C0.3&amp;comma;0.6&amp;comma;0.7&amp;comma;0.4&amp;comma;1.0&amp;comma;0.0</Effect>
+    <Effect>E_SLIDER_DrawPercentage=100,E_SLIDER_Thickness=3,E_TEXTCTRL_SketchDef=0.2&amp;comma;0.2;L0.8&amp;comma;0.2;L0.8&amp;comma;0.8;L0.2&amp;comma;0.8;c|0.5&amp;comma;0.3;Q0.7&amp;comma;0.5&amp;comma;0.5&amp;comma;0.7;Q0.3&amp;comma;0.5&amp;comma;0.5&amp;comma;0.3|0.0&amp;comma;1.0;C0.3&amp;comma;0.6&amp;comma;0.7&amp;comma;0.4&amp;comma;1.0&amp;comma;0.0</Effect>
+    <Effect>E_CHECKBOX_MotionEnabled=1,E_SLIDER_MotionPercentage=30,E_TEXTCTRL_SketchDef=0.2&amp;comma;0.2;L0.8&amp;comma;0.2;L0.8&amp;comma;0.8;L0.2&amp;comma;0.8;c|0.5&amp;comma;0.3;Q0.7&amp;comma;0.5&amp;comma;0.5&amp;comma;0.7;Q0.3&amp;comma;0.5&amp;comma;0.5&amp;comma;0.3|0.0&amp;comma;1.0;C0.3&amp;comma;0.6&amp;comma;0.7&amp;comma;0.4&amp;comma;1.0&amp;comma;0.0</Effect>
+    <Effect>E_TEXTCTRL_SketchDef=0.1&amp;comma;0.5;Q0.3&amp;comma;0.0&amp;comma;0.5&amp;comma;0.5;C0.6&amp;comma;1.0&amp;comma;0.8&amp;comma;0.0&amp;comma;0.9&amp;comma;0.5,E_VALUECURVE_DrawPercentage=Active=TRUE|Id=ID_VALUECURVE_DrawPercentage|Type=Ramp|Min=0.00|Max=100.00|P1=0.00|P2=100.00|RV=TRUE|</Effect>
+    <Effect>E_FILEPICKER_SketchBackground=media/gradient.png,E_SLIDER_SketchBackgroundOpacity=80,E_TEXTCTRL_SketchDef=0.1&amp;comma;0.1;L0.3&amp;comma;0.9;L0.5&amp;comma;0.1;L0.7&amp;comma;0.9;L0.9&amp;comma;0.1</Effect>
+    <Effect>B_CHOICE_BufferStyle=Per Preview,E_TEXTCTRL_SketchDef=0.1&amp;comma;0.1;L0.3&amp;comma;0.9;L0.5&amp;comma;0.1;L0.7&amp;comma;0.9;L0.9&amp;comma;0.1</Effect>
+  </EffectDB>
+  <DisplayElements>
+    <Element collapsed="false" type="model" name="Matrix" visible="true" />
+    <Element collapsed="false" type="model" name="Tree" visible="true" />
+    <Element collapsed="false" type="model" name="Arches" visible="true" />
+    <Element collapsed="false" type="model" name="Line" visible="true" />
+    <Element collapsed="false" type="model" name="Star" visible="true" />
+    <Element collapsed="false" type="model" name="Wreath" visible="true" />
+    <Element collapsed="false" type="model" name="Icicles" visible="true" />
+    <Element collapsed="false" type="model" name="Window" visible="true" />
+    <Element collapsed="false" type="model" name="Sphere" visible="true" />
+    <Element collapsed="false" type="model" name="Cube" visible="true" />
+    <Element collapsed="false" type="model" name="Custom" visible="true" />
+    <Element collapsed="false" type="model" name="Canes" visible="true" />
+    <Element collapsed="false" type="model" name="Circle" visible="true" />
+    <Element collapsed="false" type="model" name="Spinner" visible="true" />
+    <Element collapsed="false" type="model" name="PolyLine" visible="true" />
+    <Element collapsed="false" type="model" name="All Models" visible="true" />
+    <Element collapsed="false" type="model" name="Mixed Group" visible="true" />
+  </DisplayElements>
+  <ElementEffects>
+    <Element type="model" name="Matrix">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Tree">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Arches">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Line">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Star">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Wreath">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Icicles">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Window">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Sphere">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Cube">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Custom">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Canes">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Circle">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Spinner">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="PolyLine">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="0" endTime="1000" palette="0" />
+        <Effect ref="1" name="Sketch" startTime="1000" endTime="2000" palette="0" />
+        <Effect ref="2" name="Sketch" startTime="2000" endTime="3000" palette="0" />
+        <Effect ref="3" name="Sketch" startTime="3000" endTime="4000" palette="0" />
+        <Effect ref="4" name="Sketch" startTime="4000" endTime="5000" palette="0" />
+        <Effect ref="5" name="Sketch" startTime="5000" endTime="6000" palette="0" />
+        <Effect ref="6" name="Sketch" startTime="6000" endTime="7000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="All Models">
+      <EffectLayer>
+        <Effect ref="0" name="Sketch" startTime="7000" endTime="8000" palette="0" />
+        <Effect ref="7" name="Sketch" startTime="8000" endTime="9000" palette="0" />
+      </EffectLayer>
+    </Element>
+    <Element type="model" name="Mixed Group">
+      <EffectLayer>
+      </EffectLayer>
+    </Element>
+  </ElementEffects>
+  <lastView>0</lastView>
+</xsequence>

@@ -41,9 +41,23 @@ The generated show contains:
   - controller-relative, chained (`>`) and offset (`@`) start channels
   - individual start channels
   - a rotated matrix
+- 16 more model types and layouts, also kept out of `All Models` and grouped as `New Types`:
+  - flat, ribbon and spiral trees
+  - a vertical, two-strand, alternating-node matrix and a no-zig-zag matrix
+  - a two-layer, two-string 3D custom model
+  - a multi-layer star, an inside-out circle, a counter-clockwise window frame, a zig-zag spinner, alternating icicles and reversed candy canes with sticks
+  - multi-point, channel block, image and label models
+- `SM_Matrix`, a matrix carrying every submodel form: sub-buffer, *Keep XY* and *Stacked Strands* range styles, reversed ranges and a node list with gaps.
+- A DMX skull and a 3D servo model.
 - On the matrix, two submodels and a node-range singing face. On the tree, a submodel. On the star, a node-range state definition.
-- `media/beat.wav`, a synthetic 60 s beat with a frequency sweep, and `media/gradient.png`, both written by the generator. Also `media/testsrc.mp4`, a 3 s ffmpeg `testsrc2` clip, which is committed because the CI container has no ffmpeg.
-- An `Effect_<Name>` sequence for each effect, except the ones that need DMX fixtures, MIDI, video, shaders or sketch files. Each one steps through the effect's default settings, every value of each static choice, and every checkbox flipped, one second each, read from xLights' `resources/effectmetadata/*.json`. It then renders the defaults on the group, once with the default buffer and once with *Per Preview*.
+- Media written by the generator:
+  - `media/beat.wav`, a synthetic 60 s beat with a frequency sweep
+  - `media/gradient.png`
+  - `media/pattern.fs`, an ISF shader with float, bool, choice, point, colour and event inputs
+  - `media/pattern.gled` and `media/pattern.csv`, Glediator raw and CSV frames
+
+  Also `media/testsrc.mp4`, a 3 s ffmpeg `testsrc2` clip, which is committed because the CI container has no ffmpeg.
+- An `Effect_<Name>` sequence for each effect, except the ones that need input (listed below). Each one steps through the effect's default settings, every value of each static choice, and every checkbox flipped, one second each, read from xLights' `resources/effectmetadata/*.json`. It then renders the defaults on the group, once with the default buffer and once with *Per Preview*.
 - `Effect_SingleStrandFX`: Single Strand's FX mode, which runs the WLED effect library in `FX.cpp`. It covers all its modes and all 71 palettes, read from `FX.h`. The two "Phased" modes are split into `Effect_SingleStrandFX_Phased`, an expected failure: their phase is a function-level `static` shared by every model and render thread, so the output depends on thread timing.
 - Hand-written scenarios for the effects that need input:
   - **Faces:** each phoneme in turn, then driven by a lyric track.
@@ -53,7 +67,11 @@ The generated show contains:
   - **Duplicate:** copies the matrix's layer onto every other model.
   - **Video:** the test clip, through every option.
   - **Moving Head:** positions, offsets, groupings, all 10 patterns, value curves, a path, colour, wheel, dimmer and shutter. It runs on the group and on a single fixture.
-  - **DMX** and **Servo:** levels, ramps, inversion and 8/16-bit output.
+  - **DMX** and **Servo:** levels, ramps, inversion and 8/16-bit output. `Effect_DMXSkullServo3D` does the same for the skull and the 3D servo model.
+  - **Piano** and **Guitar:** a timing track of note names, sharps/flats, MIDI numbers, chords and (for Guitar) string/fret positions, through each type and option.
+  - **Sketch:** line, quadratic and cubic paths, a closed path and several paths at once, with motion, thickness, a value-curved draw percentage and a background image.
+  - **Glediator:** raw frames on the matrix and CSV frames on every model, through each duration treatment.
+  - **Shader:** the test shader through each of its inputs, plus speed, offset, zoom and lead-in.
 - `Feature_*` sequences covering:
   - in/out transitions
   - all 24 layer blend methods
@@ -65,6 +83,8 @@ The generated show contains:
   - submodels
   - palette colour curves, layer morph, and sparkles, plain and music-driven
   - every output variant (`Feature_ModelOutput`)
+  - the extra model types through a spread of effects and buffer styles (`Feature_ModelTypes`)
+  - every submodel form (`Feature_SubModelTypes`)
 - `Seq_*` sequences that vary the sequence itself: 25 ms and 100 ms frame timing, and model blending off.
 
 The audio and image are synthetic, so the show can be public.
